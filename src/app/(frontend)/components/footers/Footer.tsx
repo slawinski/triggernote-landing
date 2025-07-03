@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export const Footer = () => {
   return (
@@ -6,7 +7,13 @@ export const Footer = () => {
       <>
         <section className="py-24 overflow-hidden">
           <div className="container px-4 mx-auto">
-            <img className="mb-20" src="nightsable-assets/logos/logo.svg" alt />
+            <Image
+              className="mb-20"
+              src="/nightsable-assets/logos/logo.svg"
+              alt="Logo"
+              width={130}
+              height={25}
+            />
             <div className="flex flex-wrap items-end -m-8 mb-20">
               <div className="w-full md:w-1/2 p-8">
                 <div className="md:max-w-md">
@@ -137,41 +144,51 @@ export const Footer = () => {
                 <ul className="flex flex-wrap items-center -m-2 sm:-m-5">
                   <li className="p-2 sm:p-5">
                     <a className="inline-block" href="#">
-                      <img
-                        src="nightsable-assets/images/footers/twitter-white.svg"
-                        alt=""
+                      <Image
+                        src="/nightsable-assets/images/footers/twitter-white.svg"
+                        alt="Twitter"
+                        width={25}
+                        height={25}
                       />
                     </a>
                   </li>
                   <li className="p-2 sm:p-5">
                     <a className="inline-block" href="#">
-                      <img
-                        src="nightsable-assets/images/footers/linkedin-white.svg"
-                        alt=""
+                      <Image
+                        src="/nightsable-assets/images/footers/linkedin-white.svg"
+                        alt="Linkedin"
+                        width={25}
+                        height={25}
                       />
                     </a>
                   </li>
                   <li className="p-2 sm:p-5">
                     <a className="inline-block" href="#">
-                      <img
-                        src="nightsable-assets/images/footers/tiktok-wh.svg"
-                        alt=""
+                      <Image
+                        src="/nightsable-assets/images/footers/tiktok-wh.svg"
+                        alt="Tiktok"
+                        width={25}
+                        height={25}
                       />
                     </a>
                   </li>
                   <li className="p-2 sm:p-5">
                     <a className="inline-block" href="#">
-                      <img
-                        src="nightsable-assets/images/footers/fb-white.svg"
-                        alt=""
+                      <Image
+                        src="/nightsable-assets/images/footers/fb-white.svg"
+                        alt="Facebook"
+                        width={25}
+                        height={25}
                       />
                     </a>
                   </li>
                   <li className="p-2 sm:p-5">
                     <a className="inline-block" href="#">
-                      <img
-                        src="nightsable-assets/images/footers/instagram-white.svg"
-                        alt=""
+                      <Image
+                        src="/nightsable-assets/images/footers/instagram-white.svg"
+                        alt="Instagram"
+                        width={25}
+                        height={25}
                       />
                     </a>
                   </li>

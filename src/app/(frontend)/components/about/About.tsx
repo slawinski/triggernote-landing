@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export const About = () => {
   return (
@@ -9,10 +10,10 @@ export const About = () => {
             <div className="relative text-center md:max-w-4xl mx-auto">
               <h2 className="mb-8 text-3xl text-white tracking-tight leading-normal">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
+                industry. Lorem Ipsum has been the industry&apos;s standard
+                dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It
+                has survived not only five centuries, but also the leap into
                 electronic typesetting,
               </h2>
               <a
@@ -21,15 +22,19 @@ export const About = () => {
               >
                 Read more
               </a>
-              <img
+              <Image
                 className="absolute top-8 -left-20"
                 src="nightsable-assets/images/abouts/star.svg"
-                alt=""
+                alt="Star"
+                width={26}
+                height={37}
               />
-              <img
+              <Image
                 className="absolute top-48 -right-20"
                 src="nightsable-assets/images/abouts/star-light.svg"
-                alt=""
+                alt="Star light"
+                width={26}
+                height={37}
               />
             </div>
           </div>

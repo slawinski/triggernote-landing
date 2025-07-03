@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export const Hero = () => {
   return (
@@ -9,7 +10,12 @@ export const Hero = () => {
             <div className="flex flex-wrap items-center">
               <div className="w-auto">
                 <a className="relative z-10 inline-block" href="#">
-                  <img src="nightsable-assets/logos/logo.svg" alt="Logo" />
+                  <Image
+                    src="/nightsable-assets/logos/logo.svg"
+                    alt="Logo"
+                    width={130}
+                    height={25}
+                  />
                 </a>
               </div>
             </div>
@@ -78,7 +84,12 @@ export const Hero = () => {
               <div className="flex items-center justify-between -m-2">
                 <div className="w-auto p-2">
                   <a className="inline-block" href="#">
-                    <img src="nightsable-assets/logos/logo.svg" alt="Logo" />
+                    <Image
+                      src="nightsable-assets/logos/logo.svg"
+                      alt="Logo"
+                      width={0}
+                      height={0}
+                    />
                   </a>
                 </div>
                 <div className="w-auto p-2">
@@ -157,29 +168,39 @@ export const Hero = () => {
             </div>
             <div className="w-full md:w-1/2 lg:w-5/12 p-8">
               <div className="relative max-w-max mx-auto md:mr-0">
-                <img
-                  src="nightsable-assets/images/headers/card.png"
+                <Image
+                  src="/nightsable-assets/images/headers/card.png"
                   alt="Card"
+                  width={300}
+                  height={460}
                 />
-                <img
+                <Image
                   className="absolute -top-16 -left-16"
                   src="nightsable-assets/images/headers/star.svg"
                   alt="Star"
+                  width={26}
+                  height={37}
                 />
-                <img
+                <Image
                   className="absolute top-56 -left-44"
                   src="nightsable-assets/images/headers/star2.svg"
                   alt="Star 2"
+                  width={46}
+                  height={64}
                 />
                 <div className="absolute bottom-10 -right-40">
-                  <img
+                  <Image
                     className="relative -bottom-4"
                     src="nightsable-assets/images/headers/star5.svg"
                     alt="Star 5"
+                    width={46}
+                    height={64}
                   />
-                  <img
+                  <Image
                     src="nightsable-assets/images/headers/star3.svg"
                     alt="Star 3"
+                    width={46}
+                    height={64}
                   />
                 </div>
               </div>
@@ -187,15 +208,19 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-      <img
+      <Image
         className="absolute top-0 left-0"
         src="nightsable-assets/images/headers/layer-blur.svg"
         alt="Layer blur"
+        width={706}
+        height={235}
       />
-      <img
+      <Image
         className="absolute top-24 right-0"
         src="nightsable-assets/images/headers/lines.svg"
         alt="Lines"
+        width={1440}
+        height={672}
       />
     </section>
   );
