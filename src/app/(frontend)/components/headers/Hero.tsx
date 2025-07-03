@@ -1,6 +1,6 @@
 import React from "react";
 
-const Hero: React.FC = () => {
+export const Hero = () => {
   return (
     <section className="relative overflow-hidden">
       <div className="container px-4 mx-auto">
@@ -200,5 +200,3 @@ const Hero: React.FC = () => {
     </section>
   );
 };
-
-export default Hero;
