@@ -1,8 +1,7 @@
 import { headers as getHeaders } from "next/headers.js";
-import { getPayload } from "payload";
+import { CollectionSlug, getPayload } from "payload";
 import React from "react";
 import config from "@/payload.config";
-import "./styles.css";
 import {
   Hero,
   About,
@@ -17,6 +16,19 @@ export default async function HomePage() {
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
   await payload.auth({ headers });
+
+  const {
+    docs: [page],
+  } = await payload.find({
+    collection: "pages" as CollectionSlug,
+    where: {
+      slug: { equals: "index" },
+    },
+  });
+
+  if (!page) {
+    return null;
+  }
 
   return (
     <>
