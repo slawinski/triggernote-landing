@@ -1,7 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import { Page } from "@/payload-types";
 
-export const Hero = () => {
+type HeroProps = Extract<Page["layout"][0], { blockType: "hero" }>;
+
+export const Hero = ({ block }: { block: HeroProps }) => {
   return (
     <section className="relative overflow-hidden">
       <div className="container px-4 mx-auto">
@@ -152,11 +155,10 @@ export const Hero = () => {
                   Nightsable Card
                 </span>
                 <h1 className="font-heading mb-8 text-7xl lg:text-8xl xl:text-10xl text-white tracking-tighter">
-                  Making credit history with nightcard
+                  {block.heading}
                 </h1>
                 <p className="mb-10 text-lg text-white md:max-w-xs">
-                  Nightsable is a strategic branding agency focused on brand
-                  creation, rebrands, and brand
+                  {block.subheading}
                 </p>
                 <a
                   className="inline-block px-8 py-4 tracking-tighter bg-green-400 hover:bg-green-500 text-black focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"

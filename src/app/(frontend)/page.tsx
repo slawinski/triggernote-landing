@@ -1,5 +1,4 @@
-import { headers as getHeaders } from "next/headers.js";
-import { CollectionSlug, getPayload } from "payload";
+import { getPayload } from "payload";
 import React from "react";
 import config from "@/payload.config";
 import {
@@ -10,29 +9,39 @@ import {
   Footer,
   Cookies,
 } from "./components";
+import { Page } from "@/payload-types";
+
+const renderBlock = (block: Page["layout"][0]) => {
+  switch (block.blockType) {
+    case "hero":
+      return <Hero block={block} key={block.id} />;
+    default:
+      return null;
+  }
+};
 
 export default async function HomePage() {
-  const headers = await getHeaders();
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
-  await payload.auth({ headers });
 
   const {
     docs: [page],
   } = await payload.find({
-    collection: "pages" as CollectionSlug,
+    collection: "pages",
     where: {
       slug: { equals: "index" },
     },
   });
 
   if (!page) {
-    return null;
+    return <div>Page not found</div>;
   }
 
   return (
     <>
-      <Hero />
+      <div className="page">
+        {page.layout?.map((block) => renderBlock(block))}
+      </div>
       <About />
       <Features />
       <Application />
