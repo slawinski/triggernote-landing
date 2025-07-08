@@ -8,13 +8,17 @@ import {
   Application,
   Footer,
   Cookies,
+  Header,
 } from "./components";
 import { Page } from "@/payload-types";
+import { notFound } from "next/navigation";
 
 const renderBlock = (block: Page["layout"][0]) => {
   switch (block.blockType) {
     case "hero":
       return <Hero block={block} key={block.id} />;
+    case "header":
+      return <Header block={block} key={block.id} />;
     default:
       return null;
   }
@@ -34,7 +38,7 @@ export default async function HomePage() {
   });
 
   if (!page) {
-    return <div>Page not found</div>;
+    return notFound();
   }
 
   return (
