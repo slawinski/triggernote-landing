@@ -72,13 +72,6 @@ export const Hero = ({ block }: { block: HeroProps }) => {
         </div>
       </div>
       <Image
-        className="absolute top-0 left-0"
-        src="nightsable-assets/images/headers/layer-blur.svg"
-        alt="Layer blur"
-        width={706}
-        height={235}
-      />
-      <Image
         className="absolute top-24 right-0"
         src="nightsable-assets/images/headers/lines.svg"
         alt="Lines"
