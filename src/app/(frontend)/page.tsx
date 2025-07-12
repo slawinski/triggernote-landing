@@ -19,6 +19,10 @@ const renderBlock = (block: Page["layout"][0]) => {
       return <Hero block={block} key={block.id} />;
     case "header":
       return <Header block={block} key={block.id} />;
+    case "about":
+      return <About block={block} key={block.id} />;
+    case "features":
+      return <Features block={block} key={block.id} />;
     default:
       return null;
   }
@@ -46,8 +50,6 @@ export default async function HomePage() {
       <div className="page">
         {page.layout?.map((block) => renderBlock(block))}
       </div>
-      <About />
-      <Features />
       <Application />
       <Footer />
       <Cookies />

@@ -1,7 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import { Page } from "@/payload-types";
 
-export const About = () => {
+type About = Extract<Page["layout"][0], { blockType: "about" }>;
+
+export const About = ({ block }: { block: About }) => {
   return (
     <React.Fragment>
       <>
@@ -9,18 +12,13 @@ export const About = () => {
           <div className="container px-4 mx-auto">
             <div className="relative text-center md:max-w-4xl mx-auto">
               <h2 className="mb-8 text-3xl text-white tracking-tight leading-normal">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard
-                dummy text ever since the 1500s, when an unknown printer took a
-                galley of type and scrambled it to make a type specimen book. It
-                has survived not only five centuries, but also the leap into
-                electronic typesetting,
+                {block.content}
               </h2>
               <a
                 className="inline-block px-8 py-4 text-white hover:text-black font-medium tracking-tighter hover:bg-green-400 border-2 border-white focus:border-green-400 focus:border-opacity-40 hover:border-green-400 focus:ring-4 focus:ring-green-400 focus:ring-opacity-40 rounded-full transition duration-300"
-                href="#"
+                href={block["more-button"].link}
               >
-                Read more
+                {block["more-button"].caption}
               </a>
               <Image
                 className="absolute top-8 -left-20"

@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { Page } from "@/payload-types";
 
-type HeroProps = Extract<Page["layout"][0], { blockType: "hero" }>;
+type Hero = Extract<Page["layout"][0], { blockType: "hero" }>;
 
-export const Hero = ({ block }: { block: HeroProps }) => {
+export const Hero = ({ block }: { block: Hero }) => {
   return (
     <section className="relative overflow-hidden">
       <div className="relative pt-20 pb-24 lg:pb-40">

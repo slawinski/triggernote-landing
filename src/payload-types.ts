@@ -190,6 +190,27 @@ export interface Page {
         blockName?: string | null;
         blockType: 'header';
       }
+    | {
+        content: string;
+        'more-button': {
+          caption: string;
+          link: string;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'about';
+      }
+    | {
+        heading: string;
+        cards: {
+          label?: string | null;
+          caption?: string | null;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'features';
+      }
   )[];
   updatedAt: string;
   createdAt: string;
@@ -329,6 +350,33 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     label?: T;
                     link?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        about?:
+          | T
+          | {
+              content?: T;
+              'more-button'?:
+                | T
+                | {
+                    caption?: T;
+                    link?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        features?:
+          | T
+          | {
+              heading?: T;
+              cards?:
+                | T
+                | {
+                    label?: T;
+                    caption?: T;
                     id?: T;
                   };
               id?: T;
