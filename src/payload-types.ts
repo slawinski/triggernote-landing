@@ -211,6 +211,22 @@ export interface Page {
         blockName?: string | null;
         blockType: 'features';
       }
+    | {
+        heading: string;
+        caption: string;
+        downloads?:
+          | {
+              'store-links': {
+                image: string | Media;
+                link: string;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'application';
+      }
   )[];
   updatedAt: string;
   createdAt: string;
@@ -377,6 +393,25 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     label?: T;
                     caption?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        application?:
+          | T
+          | {
+              heading?: T;
+              caption?: T;
+              downloads?:
+                | T
+                | {
+                    'store-links'?:
+                      | T
+                      | {
+                          image?: T;
+                          link?: T;
+                        };
                     id?: T;
                   };
               id?: T;

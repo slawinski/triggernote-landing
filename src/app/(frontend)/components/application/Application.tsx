@@ -1,7 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import { Page } from "@/payload-types";
 
-export const Application = () => {
+type Application = Extract<Page["layout"][0], { blockType: "application" }>;
+
+export const Application = ({ block }: { block: Application }) => {
   return (
     <section className="relative py-16 overflow-hidden">
       <div className="container px-4 mx-auto">
@@ -34,11 +37,10 @@ export const Application = () => {
               Nightsable Card
             </span>
             <h2 className="font-heading mb-6 text-7xl text-white tracking-8xl md:max-w-sm">
-              Get a Nightsable App
+              {block.heading}
             </h2>
             <p className="mb-6 text-white text-opacity-60 md:max-w-xs">
-              Nightsable is a strategic branding agency focused on brand
-              creation, rebrands, and brand
+              {block.caption}
             </p>
             <div className="flex flex-wrap -m-2.5">
               <div className="w-auto p-2.5">

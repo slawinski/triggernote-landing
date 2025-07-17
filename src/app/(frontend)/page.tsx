@@ -23,6 +23,8 @@ const renderBlock = (block: Page["layout"][0]) => {
       return <About block={block} key={block.id} />;
     case "features":
       return <Features block={block} key={block.id} />;
+    case "application":
+      return <Application block={block} key={block.id} />;
     default:
       return null;
   }
@@ -50,7 +52,6 @@ export default async function HomePage() {
       <div className="page">
         {page.layout?.map((block) => renderBlock(block))}
       </div>
-      <Application />
       <Footer />
       <Cookies />
     </>

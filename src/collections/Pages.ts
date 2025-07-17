@@ -3,6 +3,7 @@ import { HeaderBlock } from "@/blocks/HeaderBlock";
 import { CollectionConfig } from "payload";
 import { AboutBlock } from "@/blocks/AboutBlock";
 import { FeaturesBlock } from "@/blocks/FeaturesBlock";
+import { ApplicationBlock } from "@/blocks/ApplicationBlock";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -24,7 +25,13 @@ export const Pages: CollectionConfig = {
       name: "layout",
       type: "blocks",
       required: true,
-      blocks: [HeroBlock, HeaderBlock, AboutBlock, FeaturesBlock],
+      blocks: [
+        HeroBlock,
+        HeaderBlock,
+        AboutBlock,
+        FeaturesBlock,
+        ApplicationBlock,
+      ],
     },
   ],
 };
