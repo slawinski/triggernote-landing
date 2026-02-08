@@ -128,3 +128,7 @@ body::after {
     animation: scan 10s linear infinite;
     pointer-events: none;
 }
+
+.green-monochrome {
+    filter: url(#terminal-green-filter) contrast(1.2) brightness(0.9);
+}

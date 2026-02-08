@@ -12,7 +12,7 @@ export const Application = ({ block }: { block: Application }) => {
           <div className="w-full md:w-1/2 p-8">
             <div className="relative terminal-box p-4 bg-[#050a05] max-w-max mx-auto">
               <Image
-                className="relative mx-auto opacity-90"
+                className="relative mx-auto opacity-90 green-monochrome"
                 src="/nightsable-assets/images/application-section/phone.png"
                 alt="Phone"
                 width={400}
@@ -50,7 +50,7 @@ export const Application = ({ block }: { block: Application }) => {
                           }
                           width={160}
                           height={50}
-                          className=""
+                          className="green-monochrome"
                         />
                       </div>
                     ) : null}

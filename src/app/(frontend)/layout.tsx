@@ -12,6 +12,24 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="relative min-h-screen">
+        {/* SVG Filter for perfect #33ff33 monochrome */}
+        <svg style={{ visibility: "hidden", position: "absolute", width: 0, height: 0 }}>
+          <filter id="terminal-green-filter">
+            <feColorMatrix
+              type="matrix"
+              values="0.21 0.72 0.07 0 0
+                      0.21 0.72 0.07 0 0
+                      0.21 0.72 0.07 0 0
+                      0 0 0 1 0"
+              result="grayscale"
+            />
+            <feComponentTransfer>
+              <feFuncR type="linear" slope="0.2" />
+              <feFuncG type="linear" slope="1.0" />
+              <feFuncB type="linear" slope="0.2" />
+            </feComponentTransfer>
+          </filter>
+        </svg>
         <main className="relative z-10">{children}</main>
       </body>
     </html>

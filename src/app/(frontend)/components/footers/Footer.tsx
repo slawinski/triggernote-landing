@@ -83,7 +83,7 @@ export const Footer = ({ data }: { data: FooterType | null }) => {
                           alt={social.platform}
                           width={25}
                           height={25}
-                          className=""
+                          className="green-monochrome"
                         />
                       ) : (
                         <div className="w-[25px] h-[25px] bg-[#33ff33] animate-pulse opacity-50" />
