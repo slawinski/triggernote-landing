@@ -3,6 +3,12 @@ import { Block } from "payload";
 export const FeaturesBlock: Block = {
   slug: "features",
   fields: [
+    {
+      name: "tagline",
+      type: "text",
+      required: true,
+      defaultValue: "Nightsable Card",
+    },
     { name: "heading", type: "text", required: true },
     {
       name: "cards",
@@ -13,6 +19,7 @@ export const FeaturesBlock: Block = {
           type: "text",
         },
         { name: "caption", type: "text" },
+        { name: "link", type: "text" },
       ],
       minRows: 3,
       required: true,

@@ -86,8 +86,14 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    footer: Footer;
+    'cookie-consent': CookieConsent;
+  };
+  globalsSelect: {
+    footer: FooterSelect<false> | FooterSelect<true>;
+    'cookie-consent': CookieConsentSelect<false> | CookieConsentSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -168,6 +174,7 @@ export interface Page {
   slug: string;
   layout: (
     | {
+        tagline: string;
         heading: string;
         subheading: string;
         image: string | Media;
@@ -186,6 +193,10 @@ export interface Page {
           link?: string | null;
           id?: string | null;
         }[];
+        cta?: {
+          label?: string | null;
+          link?: string | null;
+        };
         id?: string | null;
         blockName?: string | null;
         blockType: 'header';
@@ -201,10 +212,12 @@ export interface Page {
         blockType: 'about';
       }
     | {
+        tagline: string;
         heading: string;
         cards: {
           label?: string | null;
           caption?: string | null;
+          link?: string | null;
           id?: string | null;
         }[];
         id?: string | null;
@@ -212,6 +225,7 @@ export interface Page {
         blockType: 'features';
       }
     | {
+        tagline: string;
         heading: string;
         caption: string;
         downloads?:
@@ -345,6 +359,7 @@ export interface PagesSelect<T extends boolean = true> {
         hero?:
           | T
           | {
+              tagline?: T;
               heading?: T;
               subheading?: T;
               image?: T;
@@ -368,6 +383,12 @@ export interface PagesSelect<T extends boolean = true> {
                     link?: T;
                     id?: T;
                   };
+              cta?:
+                | T
+                | {
+                    label?: T;
+                    link?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -387,12 +408,14 @@ export interface PagesSelect<T extends boolean = true> {
         features?:
           | T
           | {
+              tagline?: T;
               heading?: T;
               cards?:
                 | T
                 | {
                     label?: T;
                     caption?: T;
+                    link?: T;
                     id?: T;
                   };
               id?: T;
@@ -401,6 +424,7 @@ export interface PagesSelect<T extends boolean = true> {
         application?:
           | T
           | {
+              tagline?: T;
               heading?: T;
               caption?: T;
               downloads?:
@@ -452,6 +476,104 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  logo: string | Media;
+  subscription: {
+    heading: string;
+  };
+  navGroups?:
+    | {
+        label: string;
+        links?:
+          | {
+              label: string;
+              link: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  socials?:
+    | {
+        platform: string;
+        icon: string | Media;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
+  copyright: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cookie-consent".
+ */
+export interface CookieConsent {
+  id: string;
+  title: string;
+  content: string;
+  acceptButtonLabel: string;
+  settingsButtonLabel: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  logo?: T;
+  subscription?:
+    | T
+    | {
+        heading?: T;
+      };
+  navGroups?:
+    | T
+    | {
+        label?: T;
+        links?:
+          | T
+          | {
+              label?: T;
+              link?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  socials?:
+    | T
+    | {
+        platform?: T;
+        icon?: T;
+        link?: T;
+        id?: T;
+      };
+  copyright?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cookie-consent_select".
+ */
+export interface CookieConsentSelect<T extends boolean = true> {
+  title?: T;
+  content?: T;
+  acceptButtonLabel?: T;
+  settingsButtonLabel?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

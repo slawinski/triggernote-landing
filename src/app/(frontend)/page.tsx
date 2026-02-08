@@ -47,13 +47,31 @@ export default async function HomePage() {
     return notFound();
   }
 
+  let footer = null;
+  try {
+    footer = await payload.findGlobal({
+      slug: "footer",
+    });
+  } catch (e) {
+    console.error("Footer global not found", e);
+  }
+
+  let cookieConsent = null;
+  try {
+    cookieConsent = await payload.findGlobal({
+      slug: "cookie-consent",
+    });
+  } catch (e) {
+    console.error("CookieConsent global not found", e);
+  }
+
   return (
     <>
       <div className="page">
         {page.layout?.map((block) => renderBlock(block))}
       </div>
-      <Footer />
-      <Cookies />
+      <Footer data={footer} />
+      <Cookies data={cookieConsent} />
     </>
   );
 }

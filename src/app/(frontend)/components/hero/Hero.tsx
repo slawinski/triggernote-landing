@@ -13,7 +13,7 @@ export const Hero = ({ block }: { block: Hero }) => {
             <div className="relative z-10 w-full md:w-1/2 lg:w-7/12 p-8">
               <div className="md:max-w-xl">
                 <span className="inline-block mb-2.5 text-sm text-green-400 font-medium tracking-tighter">
-                  Nightsable Card
+                  {block.tagline}
                 </span>
                 <h1 className="font-heading mb-8 text-7xl lg:text-8xl xl:text-10xl text-white tracking-tighter">
                   {block.heading}
@@ -31,12 +31,14 @@ export const Hero = ({ block }: { block: Hero }) => {
             </div>
             <div className="w-full md:w-1/2 lg:w-5/12 p-8">
               <div className="relative max-w-max mx-auto md:mr-0">
-                <Image
-                  src="/nightsable-assets/images/headers/card.png"
-                  alt="Card"
-                  width={300}
-                  height={460}
-                />
+                {(block.image && typeof block.image !== "string" && block.image.url) ? (
+                  <Image
+                    src={block.image.url}
+                    alt={block.image.alt || "Hero Image"}
+                    width={block.image.width || 300}
+                    height={block.image.height || 460}
+                  />
+                ) : null}
                 <Image
                   className="absolute -top-16 -left-16"
                   src="nightsable-assets/images/headers/star.svg"

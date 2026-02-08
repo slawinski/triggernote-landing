@@ -4,13 +4,12 @@ import React from "react";
 type Features = Extract<Page["layout"][0], { blockType: "features" }>;
 
 export const Features = ({ block }: { block: Features }) => {
-  console.log(block.cards);
   return (
     <section className="relative py-24 overflow-hidden">
       <div className="container px-4 mx-auto">
         <div className="mb-20 md:max-w-xl text-center mx-auto">
           <span className="inline-block mb-4 text-sm text-green-400 font-medium tracking-tighter">
-            Nightsable Card
+            {block.tagline}
           </span>
           <h2 className="font-heading text-7xl lg:text-8xl text-white tracking-tighter-xl">
             {block.heading}
@@ -20,17 +19,19 @@ export const Features = ({ block }: { block: Features }) => {
           {block.cards.map((card) => (
             <div key={card.id} className="w-full md:w-1/3 p-4">
               <div className="px-10 pt-14 pb-12 h-full bg-gradient-radial-dark border border-gray-900 border-opacity-30 rounded-3xl">
-                <a
-                  className="inline-block mb-6 px-5 py-3 text-sm text-white hover:text-black font-medium hover:bg-green-500 tracking-tight border-2 border-white hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-200"
-                  href="#"
-                >
-                  Get in touch
-                </a>
+                {card.link && (
+                  <a
+                    className="inline-block mb-6 px-5 py-3 text-sm text-white hover:text-black font-medium hover:bg-green-500 tracking-tight border-2 border-white hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-200"
+                    href={card.link}
+                  >
+                    Get in touch
+                  </a>
+                )}
                 <h3 className="mb-6 text-4xl text-white tracking-tighter-xl">
                   {card.label}
                 </h3>
                 <p className="mb-40 text-white">{card.caption}</p>
-                <a className="inline-block" href="#">
+                <a className="inline-block" href={card.link || "#"}>
                   <svg
                     width={26}
                     height={26}

@@ -19,5 +19,14 @@ export const HeaderBlock: Block = {
       minRows: 1,
       required: true,
     },
+    {
+      name: "cta",
+      label: "CTA Button",
+      type: "group",
+      fields: [
+        { name: "label", type: "text" },
+        { name: "link", type: "text" },
+      ],
+    },
   ],
 };

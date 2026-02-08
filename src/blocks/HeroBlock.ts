@@ -4,6 +4,12 @@ export const HeroBlock: Block = {
   slug: "hero",
   fields: [
     {
+      name: "tagline",
+      type: "text",
+      required: true,
+      defaultValue: "Nightsable Card",
+    },
+    {
       name: "heading",
       type: "text",
       required: true,

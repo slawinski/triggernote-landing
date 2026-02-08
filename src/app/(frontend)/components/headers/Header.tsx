@@ -20,14 +20,16 @@ export const Header = ({ block }: { block: Header }) => {
             <div className="flex flex-wrap items-center">
               <div className="w-auto">
                 <a className="relative z-10 inline-block" href="#">
-                  <Image
-                    src={
-                      typeof block.logo === "string" ? "" : block.logo.url || ""
-                    }
-                    alt="Logo"
-                    width={130}
-                    height={25}
-                  />
+                  {(typeof block.logo !== "string" && block.logo.url) ? (
+                    <Image
+                      src={block.logo.url}
+                      alt={block.logo.alt || "Logo"}
+                      width={130}
+                      height={25}
+                    />
+                  ) : (
+                    <div className="w-[130px] h-[25px] bg-gray-800 animate-pulse" />
+                  )}
                 </a>
               </div>
             </div>
@@ -47,14 +49,16 @@ export const Header = ({ block }: { block: Header }) => {
                 </ul>
               </div>
               <div className="w-auto hidden lg:block">
-                <div className="inline-block">
-                  <a
-                    className="inline-block px-8 py-4 text-white hover:text-black tracking-tighter hover:bg-green-400 border-2 border-white focus:border-green-400 focus:border-opacity-40 hover:border-green-400 focus:ring-4 focus:ring-green-400 focus:ring-opacity-40 rounded-full transition duration-300"
-                    href="#"
-                  >
-                    Get in touch
-                  </a>
-                </div>
+                {block.cta?.label && (
+                  <div className="inline-block">
+                    <a
+                      className="inline-block px-8 py-4 text-white hover:text-black tracking-tighter hover:bg-green-400 border-2 border-white focus:border-green-400 focus:border-opacity-40 hover:border-green-400 focus:ring-4 focus:ring-green-400 focus:ring-opacity-40 rounded-full transition duration-300"
+                      href={block.cta.link || "#"}
+                    >
+                      {block.cta.label}
+                    </a>
+                  </div>
+                )}
               </div>
               <div className="w-auto lg:hidden">
                 <button
@@ -99,16 +103,16 @@ export const Header = ({ block }: { block: Header }) => {
                 <div className="flex items-center justify-between -m-2">
                   <div className="w-auto p-2">
                     <a className="inline-block" href="#">
-                      <Image
-                        src={
-                          typeof block.logo === "string"
-                            ? ""
-                            : block.logo.url || ""
-                        }
-                        alt="Logo"
-                        width={130}
-                        height={25}
-                      />
+                      {(typeof block.logo !== "string" && block.logo.url) ? (
+                        <Image
+                          src={block.logo.url}
+                          alt={block.logo.alt || "Logo"}
+                          width={130}
+                          height={25}
+                        />
+                      ) : (
+                        <div className="w-[130px] h-[25px] bg-gray-800 animate-pulse" />
+                      )}
                     </a>
                   </div>
                   <div className="w-auto p-2">
@@ -151,12 +155,14 @@ export const Header = ({ block }: { block: Header }) => {
                 </ul>
               </div>
               <div className="flex flex-col justify-end w-full pb-8">
-                <a
-                  className="inline-block px-8 py-4 text-center text-white hover:text-black tracking-tighter hover:bg-green-400 border-2 border-white focus:border-green-400 focus:border-opacity-40 hover:border-green-400 focus:ring-4 focus:ring-green-400 focus:ring-opacity-40 rounded-full transition duration-300"
-                  href="#"
-                >
-                  Get in touch
-                </a>
+                {block.cta?.label && (
+                  <a
+                    className="inline-block px-8 py-4 text-center text-white hover:text-black tracking-tighter hover:bg-green-400 border-2 border-white focus:border-green-400 focus:border-opacity-40 hover:border-green-400 focus:ring-4 focus:ring-green-400 focus:ring-opacity-40 rounded-full transition duration-300"
+                    href={block.cta.link || "#"}
+                  >
+                    {block.cta.label}
+                  </a>
+                )}
               </div>
             </div>
           </nav>

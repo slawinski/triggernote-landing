@@ -3,6 +3,12 @@ import { Block } from "payload";
 export const ApplicationBlock: Block = {
   slug: "application",
   fields: [
+    {
+      name: "tagline",
+      type: "text",
+      required: true,
+      defaultValue: "Nightsable Card",
+    },
     { name: "heading", type: "text", required: true },
     {
       name: "caption",

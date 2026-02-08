@@ -34,7 +34,7 @@ export const Application = ({ block }: { block: Application }) => {
           </div>
           <div className="w-full md:w-1/2 p-8">
             <span className="inline-block mb-4 text-sm text-green-400 font-medium tracking-tighter">
-              Nightsable Card
+              {block.tagline}
             </span>
             <h2 className="font-heading mb-6 text-7xl text-white tracking-8xl md:max-w-sm">
               {block.heading}
@@ -43,26 +43,20 @@ export const Application = ({ block }: { block: Application }) => {
               {block.caption}
             </p>
             <div className="flex flex-wrap -m-2.5">
-              <div className="w-auto p-2.5">
-                <a href="#">
-                  <Image
-                    src="/nightsable-assets/images/application-section/app-store.png"
-                    alt="App Store"
-                    width={180}
-                    height={55}
-                  />
-                </a>
-              </div>
-              <div className="w-auto p-2.5">
-                <a href="#">
-                  <Image
-                    src="/nightsable-assets/images/application-section/google-play.png"
-                    alt="Google Play"
-                    width={180}
-                    height={55}
-                  />
-                </a>
-              </div>
+              {block.downloads?.map((download) => (
+                <div key={download.id} className="w-auto p-2.5">
+                  <a href={download["store-links"].link}>
+                    {(download["store-links"].image && typeof download["store-links"].image !== "string" && download["store-links"].image.url) ? (
+                        <Image
+                          src={download["store-links"].image.url}
+                          alt={download["store-links"].image.alt || "Download Icon"}
+                          width={180}
+                          height={55}
+                        />
+                      ) : null}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </div>
