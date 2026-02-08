@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import { CookieConsent } from "@/payload-types";
 
 export const Cookies = ({ data }: { data: CookieConsent | null }) => {
@@ -12,7 +11,7 @@ export const Cookies = ({ data }: { data: CookieConsent | null }) => {
     if (!accepted) {
       setVisible(true);
     }
-  }, []);
+  }, [data]);
 
   const handleAccept = () => {
     localStorage.setItem("cookieConsent", "true");
@@ -26,18 +25,24 @@ export const Cookies = ({ data }: { data: CookieConsent | null }) => {
   if (!data || !visible) return null;
 
   return (
-    <section className="fixed bottom-0 left-0 z-50 w-full p-10">
-      <div className="relative p-8 max-w-xl bg-black rounded-5xl">
-        <h3 className="mb-3.5 text-2xl text-white font-medium tracking-2xl">
-          {data.title}
+    <section className="fixed bottom-0 left-0 z-50 w-full p-4 md:p-10">
+      <div className="relative p-8 max-w-xl bg-[#050a05] border-2 border-[#33ff33] shadow-[0_0_20px_#33ff33]">
+         {/* Decorative corner markers */}
+        <div className="absolute top-0 left-0 w-4 h-4 border-t-4 border-l-4 border-[#33ff33] -mt-1 -ml-1"></div>
+        <div className="absolute top-0 right-0 w-4 h-4 border-t-4 border-r-4 border-[#33ff33] -mt-1 -mr-1"></div>
+        <div className="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-[#33ff33] -mb-1 -ml-1"></div>
+        <div className="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-[#33ff33] -mb-1 -mr-1"></div>
+
+        <h3 className="mb-3.5 text-2xl text-[#33ff33] font-bold tracking-widest uppercase">
+          &gt; {data.title}
         </h3>
-        <p className="mb-8 text-sm text-white">
+        <p className="mb-8 text-xl text-[#33ff33] font-mono opacity-80 leading-relaxed">
           {data.content}
         </p>
         <div className="flex flex-wrap -m-2">
           <div className="w-auto p-2">
             <button
-              className="inline-block px-8 py-4 font-medium tracking-tighter border-2 border-green-400 bg-green-400 hover:bg-green-500 text-black focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
+              className="terminal-button inline-block px-8 py-4 text-xl tracking-tighter"
               onClick={handleAccept}
             >
               {data.acceptButtonLabel}
@@ -45,7 +50,7 @@ export const Cookies = ({ data }: { data: CookieConsent | null }) => {
           </div>
           <div className="w-auto p-2">
             <button
-              className="inline-block px-8 py-4 text-white hover:text-black font-medium tracking-tighter hover:bg-green-400 border-2 border-white focus:border-green-400 focus:border-opacity-40 hover:border-green-400 focus:ring-4 focus:ring-green-400 focus:ring-opacity-40 rounded-full transition duration-300"
+              className="inline-block px-8 py-4 text-[#33ff33] font-medium border border-[#33ff33] hover:bg-[#33ff33] hover:text-black transition-colors uppercase"
               onClick={handleClose}
             >
               {data.settingsButtonLabel}
@@ -53,16 +58,11 @@ export const Cookies = ({ data }: { data: CookieConsent | null }) => {
           </div>
         </div>
         <button
-          className="absolute top-7 right-7"
+          className="absolute top-4 right-4 text-[#33ff33] hover:text-white font-bold text-xl"
           onClick={handleClose}
           aria-label="Close cookie consent"
         >
-          <Image
-            src="/nightsable-assets/images/cookies/close-white.png"
-            alt="Close"
-            width={16}
-            height={16}
-          />
+          [ X ]
         </button>
       </div>
     </section>

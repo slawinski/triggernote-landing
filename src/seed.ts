@@ -9,10 +9,10 @@ const dirname = path.dirname(filename)
 
 const copy = {
   hero: {
-    tagline: 'The Future of Finance',
+    tagline: 'TriggerNote - System Active',
   },
   features: {
-    tagline: 'Why Choose Us',
+    tagline: 'TriggerNote Features',
     cards: [
         { link: '/features/speed' },
         { link: '/features/security' },
@@ -20,17 +20,17 @@ const copy = {
     ]
   },
   application: {
-    tagline: 'Download Now',
+    tagline: 'Get TriggerNote',
   },
   header: {
     cta: {
-      label: 'Get Started',
+      label: 'Initialize',
       link: '/signup',
     },
   },
   footer: {
     subscription: {
-      heading: 'Subscribe to get tips and tactics to grow the way you want.',
+      heading: 'Subscribe to TriggerNote updates.',
     },
     navGroups: [
       {
@@ -52,11 +52,11 @@ const copy = {
         ],
       },
     ],
-    copyright: '© 2026 Nightsable. All rights reserved.',
+    copyright: '© 2026 TriggerNote. All rights reserved.',
   },
   cookieConsent: {
-    title: 'We value your privacy',
-    content: 'We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.',
+    title: 'Data Privacy Protocol',
+    content: 'TriggerNote uses cookies for optimal performance. By clicking "Accept All", you consent to our data processing terms.',
     acceptButtonLabel: 'Accept All',
     settingsButtonLabel: 'Preferences',
   },
@@ -105,7 +105,7 @@ async function seed() {
     })
   }
 
-  const logo = await uploadIfNotExists('nightsable-assets/logos/logo.svg', 'Nightsable Logo')
+  const logo = await uploadIfNotExists('nightsable-assets/logos/logo.svg', 'TriggerNote Logo')
   const twitterIcon = await uploadIfNotExists('nightsable-assets/images/footers/twitter-white.svg', 'Twitter')
   const linkedinIcon = await uploadIfNotExists('nightsable-assets/images/footers/linkedin-white.svg', 'LinkedIn')
   const facebookIcon = await uploadIfNotExists('nightsable-assets/images/footers/fb-white.svg', 'Facebook')

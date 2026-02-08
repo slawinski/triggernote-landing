@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { Page } from "@/payload-types";
 
 type About = Extract<Page["layout"][0], { blockType: "about" }>;
@@ -8,32 +7,22 @@ export const About = ({ block }: { block: About }) => {
   return (
     <React.Fragment>
       <>
-        <section className="pt-20 pb-24 lg:pb-32 overflow-hidden">
+        <section className="pt-20 pb-24 lg:pb-32 overflow-hidden border-b-2 border-[#33ff33]">
           <div className="container px-4 mx-auto">
             <div className="relative text-center md:max-w-4xl mx-auto">
-              <h2 className="mb-8 text-3xl text-white tracking-tight leading-normal">
-                {block.content}
-              </h2>
+              <div className="mb-8 p-6 border border-[#33ff33] bg-[#050a05] shadow-[0_0_15px_#33ff33]">
+                  <p className="text-2xl lg:text-3xl text-[#33ff33] tracking-tight leading-relaxed font-mono">
+                    <span className="opacity-50 mr-2">&gt; INFO:</span>
+                    {block.content}
+                    <span className="animate-[flicker_1s_infinite] ml-1">_</span>
+                  </p>
+              </div>
               <a
-                className="inline-block px-8 py-4 text-white hover:text-black font-medium tracking-tighter hover:bg-green-400 border-2 border-white focus:border-green-400 focus:border-opacity-40 hover:border-green-400 focus:ring-4 focus:ring-green-400 focus:ring-opacity-40 rounded-full transition duration-300"
+                className="terminal-button inline-block px-8 py-4 text-xl tracking-tighter"
                 href={block["more-button"].link}
               >
                 {block["more-button"].caption}
               </a>
-              <Image
-                className="absolute top-8 -left-20"
-                src="nightsable-assets/images/abouts/star.svg"
-                alt="Star"
-                width={26}
-                height={37}
-              />
-              <Image
-                className="absolute top-48 -right-20"
-                src="nightsable-assets/images/abouts/star-light.svg"
-                alt="Star light"
-                width={26}
-                height={37}
-              />
             </div>
           </div>
         </section>

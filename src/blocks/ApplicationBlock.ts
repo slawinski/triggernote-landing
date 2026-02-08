@@ -7,7 +7,7 @@ export const ApplicationBlock: Block = {
       name: "tagline",
       type: "text",
       required: true,
-      defaultValue: "Nightsable Card",
+      defaultValue: "TriggerNote",
     },
     { name: "heading", type: "text", required: true },
     {
