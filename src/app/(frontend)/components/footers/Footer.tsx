@@ -8,17 +8,11 @@ export const Footer = ({ data }: { data: FooterType | null }) => {
     <React.Fragment>
       <section className="py-24 overflow-hidden border-t-2 border-[#33ff33] bg-[#050a05]">
         <div className="container px-4 mx-auto">
-          {(data.logo && typeof data.logo !== "string" && data.logo.url) ? (
-            <Image
-              className="mb-20 grayscale sepia hue-rotate-[90deg] brightness-75 contrast-125 saturate-[500%]"
-              src={data.logo.url}
-              alt={data.logo.alt || "Logo"}
-              width={data.logo.width || 130}
-              height={data.logo.height || 25}
-            />
-          ) : (
-             <div className="w-[130px] h-[25px] bg-[#33ff33] animate-pulse mb-20 opacity-20" />
-          )}
+          <a className="relative z-10 inline-block mb-20" href="/">
+            <div className="text-2xl font-bold tracking-wider text-[#33ff33]">
+              &gt; TRIGGERNOTE_
+            </div>
+          </a>
           <div className="flex flex-wrap items-end -m-8 mb-20">
             <div className="w-full md:w-1/2 p-8">
               <div className="md:max-w-md">
@@ -36,7 +30,9 @@ export const Footer = ({ data }: { data: FooterType | null }) => {
                     className="absolute right-0 top-0 flex items-center justify-center px-8 h-full bg-[#33ff33] hover:bg-black hover:text-[#33ff33] border-l-2 border-[#33ff33] transition-colors group"
                     href="#"
                   >
-                    <span className="text-xl font-bold group-hover:text-[#33ff33] text-black">[ SUBMIT ]</span>
+                    <span className="text-xl font-bold group-hover:text-[#33ff33] text-black">
+                      [ SUBMIT ]
+                    </span>
                   </a>
                 </div>
               </div>
@@ -55,7 +51,7 @@ export const Footer = ({ data }: { data: FooterType | null }) => {
                             className="inline-block text-lg font-medium text-[#33ff33] hover:underline transition duration-300 opacity-80 hover:opacity-100"
                             href={link.link}
                           >
-                             &gt; {link.label}
+                            &gt; {link.label}
                           </a>
                         </li>
                       ))}
@@ -75,17 +71,22 @@ export const Footer = ({ data }: { data: FooterType | null }) => {
               <ul className="flex flex-wrap items-center -m-2 sm:-m-5">
                 {data.socials?.map((social) => (
                   <li key={social.id} className="p-2 sm:p-5">
-                    <a className="inline-block hover:opacity-80 transition-opacity" href={social.link}>
-                      {(social.icon && typeof social.icon !== "string" && social.icon.url) ? (
+                    <a
+                      className="inline-block hover:opacity-80 transition-opacity"
+                      href={social.link}
+                    >
+                      {social.icon &&
+                      typeof social.icon !== "string" &&
+                      social.icon.url ? (
                         <Image
                           src={social.icon.url}
                           alt={social.platform}
                           width={25}
                           height={25}
-                          className="grayscale sepia hue-rotate-[90deg] brightness-75 contrast-125 saturate-[500%]"
+                          className=""
                         />
                       ) : (
-                         <div className="w-[25px] h-[25px] bg-[#33ff33] animate-pulse opacity-50" />
+                        <div className="w-[25px] h-[25px] bg-[#33ff33] animate-pulse opacity-50" />
                       )}
                     </a>
                   </li>

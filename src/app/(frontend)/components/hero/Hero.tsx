@@ -40,7 +40,7 @@ export const Hero = ({ block }: { block: Hero }) => {
                     alt={block.image.alt || "Hero Image"}
                     width={block.image.width || 300}
                     height={block.image.height || 460}
-                    className="grayscale sepia hue-rotate-[90deg] brightness-75 contrast-125 saturate-[500%]"
+                    className=""
                   />
                 ) : null}
               </div>

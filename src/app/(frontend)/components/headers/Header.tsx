@@ -19,20 +19,10 @@ export const Header = ({ block }: { block: Header }) => {
           <div className="w-auto p-2">
             <div className="flex flex-wrap items-center">
               <div className="w-auto">
-                <a className="relative z-10 inline-block" href="#">
-                  {(typeof block.logo !== "string" && block.logo.url) ? (
-                    <Image
-                      src={block.logo.url}
-                      alt={block.logo.alt || "Logo"}
-                      width={130}
-                      height={25}
-                      className="grayscale sepia hue-rotate-[90deg] brightness-75 contrast-125 saturate-[500%]"
-                    />
-                  ) : (
-                    <div className="text-2xl font-bold tracking-wider animate-pulse">
-                      &gt; TRIGGERNOTE_
-                    </div>
-                  )}
+                <a className="relative z-10 inline-block" href="/">
+                  <div className="text-2xl font-bold tracking-wider">
+                    &gt; TRIGGERNOTE_
+                  </div>
                 </a>
               </div>
             </div>
@@ -79,7 +69,14 @@ export const Header = ({ block }: { block: Header }) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <rect x="2" y="2" width="52" height="52" stroke="currentColor" strokeWidth="2" />
+                    <rect
+                      x="2"
+                      y="2"
+                      width="52"
+                      height="52"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    />
                     <path
                       d="M37 32H19M37 24H19"
                       stroke="currentColor"
@@ -104,8 +101,8 @@ export const Header = ({ block }: { block: Header }) => {
               <div className="w-full">
                 <div className="flex items-center justify-between -m-2 mb-8">
                   <div className="w-auto p-2">
-                    <a className="inline-block text-2xl font-bold" href="#">
-                       &gt; MENU
+                    <a className="inline-block text-2xl font-bold" href="/">
+                      &gt; TRIGGERNOTE_
                     </a>
                   </div>
                   <div className="w-auto p-2">
@@ -146,14 +143,14 @@ export const Header = ({ block }: { block: Header }) => {
                   ))}
                 </ul>
                 <div className="mt-auto pb-8">
-                   {block.cta?.label && (
+                  {block.cta?.label && (
                     <a
-                        className="terminal-button inline-block w-full text-center px-8 py-4 text-xl tracking-tighter"
-                        href={block.cta.link || "#"}
+                      className="terminal-button inline-block w-full text-center px-8 py-4 text-xl tracking-tighter"
+                      href={block.cta.link || "#"}
                     >
-                        {block.cta.label}
+                      {block.cta.label}
                     </a>
-                    )}
+                  )}
                 </div>
               </div>
             </div>
