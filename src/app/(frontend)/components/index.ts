@@ -7,3 +7,5 @@ export * from "./cookies/Cookies";
 export * from "./headers/Header";
 export * from "./testimonials/Testimonials";
 export * from "./faq/FAQ";
+export * from "./ThemeProvider";
+export * from "./ui/ThemeToggle";

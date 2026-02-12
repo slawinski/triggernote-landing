@@ -17,7 +17,7 @@ export const TerminalCard: React.FC<TerminalCardProps> = ({
           but we can add extra internal decorations if needed */}
       
       {title && (
-        <div className="absolute -top-4 left-4 bg-[#050a05] px-2 text-terminal-green font-display border border-terminal-green">
+        <div className="absolute -top-4 left-4 bg-[#050a05] px-2 text-terminal-primary font-display border border-terminal-primary">
           {title}
         </div>
       )}

@@ -5,18 +5,57 @@
 :root {
   --background: #050a05;
   --foreground: #33ff33;
-  --terminal-green: #33ff33;
+  --terminal-primary: #33ff33;
+  --terminal-primary-rgb: 51, 255, 51;
   --terminal-black: #050a05;
+}
+
+.theme-amber {
+  --foreground: #ffb000;
+  --terminal-primary: #ffb000;
+  --terminal-primary-rgb: 255, 176, 0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-terminal-green: var(--terminal-green);
+  --color-terminal-primary: var(--terminal-primary);
   --color-terminal-black: var(--terminal-black);
   
   --font-display: "VT323", monospace;
   --font-body: monospace;
+
+  --animate-flicker: flicker 0.15s infinite;
+  --animate-scan: scan 8s linear infinite;
+  --animate-blink: blink 1s step-end infinite;
+  --animate-typewriter: typewriter 2s steps(40, end);
+
+  @keyframes flicker {
+    0% { opacity: 0.97; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.9; }
+    15% { opacity: 0.95; }
+    20% { opacity: 0.99; }
+    50% { opacity: 0.95; }
+    55% { opacity: 0.9; }
+    60% { opacity: 0.99; }
+    100% { opacity: 0.97; }
+  }
+
+  @keyframes scan {
+    0% { background-position: 0 -100vh; }
+    100% { background-position: 0 100vh; }
+  }
+
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes typewriter {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
 }
 
 body {
@@ -25,7 +64,8 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
   position: relative;
-  text-shadow: 0 0 5px var(--terminal-green);
+  text-shadow: 0 0 5px var(--terminal-primary);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6, button, .font-display {
@@ -48,9 +88,9 @@ body::before {
     ),
     linear-gradient(
       90deg,
-      rgba(51, 255, 51, 0.03),
+      rgba(var(--terminal-primary-rgb), 0.03),
       rgba(0, 0, 0, 0.02),
-      rgba(51, 255, 51, 0.03)
+      rgba(var(--terminal-primary-rgb), 0.03)
     );
   z-index: 50;
   background-size: 100% 2px, 3px 100%;
@@ -87,10 +127,11 @@ body::after {
 
 /* Custom Utilities */
 .terminal-box {
-  border: 2px solid var(--terminal-green);
+  border: 2px solid var(--terminal-primary);
   background-color: rgba(5, 10, 5, 0.9);
-  box-shadow: 0 0 10px var(--terminal-green);
+  box-shadow: 0 0 10px var(--terminal-primary);
   position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .terminal-box::before {
@@ -100,8 +141,9 @@ body::after {
     left: -2px;
     width: 10px;
     height: 10px;
-    border-top: 2px solid var(--terminal-green);
-    border-left: 2px solid var(--terminal-green);
+    border-top: 2px solid var(--terminal-primary);
+    border-left: 2px solid var(--terminal-primary);
+    transition: border-color 0.3s ease;
 }
 
 .terminal-box::after {
@@ -111,14 +153,15 @@ body::after {
     right: -2px;
     width: 10px;
     height: 10px;
-    border-bottom: 2px solid var(--terminal-green);
-    border-right: 2px solid var(--terminal-green);
+    border-bottom: 2px solid var(--terminal-primary);
+    border-right: 2px solid var(--terminal-primary);
+    transition: border-color 0.3s ease;
 }
 
 .terminal-button {
   background-color: transparent;
-  color: var(--terminal-green);
-  border: 2px solid var(--terminal-green);
+  color: var(--terminal-primary);
+  border: 2px solid var(--terminal-primary);
   text-transform: uppercase;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -128,16 +171,16 @@ body::after {
 }
 
 .terminal-button:hover {
-  background-color: var(--terminal-green);
+  background-color: var(--terminal-primary);
   color: var(--terminal-black);
-  box-shadow: 0 0 15px var(--terminal-green);
+  box-shadow: 0 0 15px var(--terminal-primary);
 }
 
 .scanline {
     width: 100%;
     height: 100px;
     z-index: 60;
-    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(51, 255, 51, 0.1) 50%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(var(--terminal-primary-rgb), 0.1) 50%, rgba(0,0,0,0) 100%);
     opacity: 0.1;
     position: absolute;
     bottom: 100%;
@@ -145,6 +188,15 @@ body::after {
     pointer-events: none;
 }
 
+.terminal-monochrome {
+    filter: sepia(100%) hue-rotate(var(--theme-hue, 50deg)) saturate(500%) contrast(1.2);
+}
+
+.theme-amber .terminal-monochrome {
+    --theme-hue: -10deg; /* Amber/Yellow hue */
+}
+
+/* Legacy support for green-monochrome */
 .green-monochrome {
     filter: sepia(100%) hue-rotate(50deg) saturate(500%) contrast(1.2);
 }

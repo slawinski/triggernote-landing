@@ -33,10 +33,10 @@ export const Testimonials = () => {
   return (
     <SectionWrapper id="testimonials">
       <div className="text-center mb-16">
-        <span className="inline-block mb-4 px-2 py-1 border border-terminal-green text-sm text-terminal-green font-display tracking-tighter uppercase bg-terminal-black/50 backdrop-blur-sm">
+        <span className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-sm text-terminal-primary font-display tracking-tighter uppercase bg-terminal-black/50 backdrop-blur-sm">
           &gt; SIGNAL_INTERCEPTS
         </span>
-        <h2 className="font-display text-5xl lg:text-7xl text-terminal-green tracking-tighter uppercase">
+        <h2 className="font-display text-5xl lg:text-7xl text-terminal-primary tracking-tighter uppercase">
           SURVIVOR LOGS
         </h2>
       </div>
@@ -46,16 +46,16 @@ export const Testimonials = () => {
           <TerminalCard key={t.id} className="h-full" title={`SIGNAL: ${t.signal}`}>
             <div className="flex flex-col h-full">
               <div className="mb-6 relative">
-                 <span className="text-6xl text-terminal-green/20 absolute -top-4 -left-2 font-display">"</span>
-                 <p className="text-terminal-green text-lg font-body italic relative z-10 pl-4">
+                 <span className="text-6xl text-terminal-primary/20 absolute -top-4 -left-2 font-display">"</span>
+                 <p className="text-terminal-primary text-lg font-body italic relative z-10 pl-4">
                     {t.content}
                  </p>
               </div>
-              <div className="mt-auto border-t border-terminal-green/30 pt-4">
-                <p className="font-display text-xl text-terminal-green uppercase">
+              <div className="mt-auto border-t border-terminal-primary/30 pt-4">
+                <p className="font-display text-xl text-terminal-primary uppercase">
                   {t.author}
                 </p>
-                <p className="font-mono text-sm text-terminal-green/60 uppercase">
+                <p className="font-mono text-sm text-terminal-primary/60 uppercase">
                   [{t.role}]
                 </p>
               </div>

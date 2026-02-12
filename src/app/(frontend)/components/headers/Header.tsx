@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { useDetectOutsideClick } from "../../hooks/use-detect-outside-click";
 import { TerminalButton } from "../ui/TerminalButton";
+import { ThemeToggle } from "../ui/ThemeToggle";
 
 type Header = Extract<Page["layout"][0], { blockType: "header" }>;
 
@@ -14,14 +15,14 @@ export const Header = ({ block }: { block: Header }) => {
   useDetectOutsideClick(menuRef, () => setIsOpen(false));
 
   return (
-    <section className="relative overflow-hidden border-b-2 border-terminal-green bg-terminal-black">
+    <section className="relative overflow-hidden border-b-2 border-terminal-primary bg-terminal-black">
       <div className="container px-4 mx-auto">
         <div className="flex items-center justify-between pt-6 pb-6 -m-2">
           <div className="w-auto p-2">
             <div className="flex flex-wrap items-center">
               <div className="w-auto">
                 <a className="relative z-10 inline-block" href="/">
-                  <div className="text-3xl font-bold tracking-wider font-display text-terminal-green">
+                  <div className="text-3xl font-bold tracking-wider font-display text-terminal-primary">
                     &gt; TRIGGERNOTE_
                   </div>
                 </a>
@@ -30,12 +31,15 @@ export const Header = ({ block }: { block: Header }) => {
           </div>
           <div className="w-auto p-2">
             <div className="flex flex-wrap items-center">
+              <div className="w-auto hidden lg:block mr-6">
+                <ThemeToggle />
+              </div>
               <div className="w-auto hidden lg:block">
                 <ul className="flex items-center mr-12">
                   {block.nav.map((item) => (
                     <li
                       key={item.id}
-                      className="mr-12 text-terminal-green text-xl font-medium tracking-tighter hover:text-terminal-green/80 font-display"
+                      className="mr-12 text-terminal-primary text-xl font-medium tracking-tighter hover:text-terminal-primary/80 font-display"
                     >
                       <a href={item.link || ""}>[{item.label}]</a>
                     </li>
@@ -53,7 +57,7 @@ export const Header = ({ block }: { block: Header }) => {
               </div>
               <div className="w-auto lg:hidden">
                 <button
-                  className="relative z-10 inline-block text-terminal-green hover:text-terminal-green/80 transition-colors"
+                  className="relative z-10 inline-block text-terminal-primary hover:text-terminal-primary/80 transition-colors"
                   aria-label="Open menu"
                   onClick={() => {
                     setIsOpen(true);
@@ -92,12 +96,12 @@ export const Header = ({ block }: { block: Header }) => {
           <div className="absolute inset-0 bg-terminal-black/90 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
           <nav
             ref={menuRef}
-            className="relative z-10 w-full max-w-sm h-full bg-terminal-black border-l-2 border-terminal-green flex flex-col p-6 overflow-y-auto shadow-[0_0_20px_rgba(51,255,51,0.2)]"
+            className="relative z-10 w-full max-w-sm h-full bg-terminal-black border-l-2 border-terminal-primary flex flex-col p-6 overflow-y-auto shadow-[0_0_20px_rgba(var(--terminal-primary-rgb),0.2)]"
           >
-            <div className="flex items-center justify-between mb-8 border-b-2 border-terminal-green pb-4">
-              <span className="text-xl font-display text-terminal-green">&gt; SYSTEM MENU</span>
+            <div className="flex items-center justify-between mb-8 border-b-2 border-terminal-primary pb-4">
+              <span className="text-xl font-display text-terminal-primary">&gt; SYSTEM MENU</span>
               <button
-                className="text-terminal-green hover:text-terminal-green/80"
+                className="text-terminal-primary hover:text-terminal-primary/80"
                 aria-label="Close menu"
                 onClick={() => setIsOpen(false)}
               >
@@ -119,12 +123,16 @@ export const Header = ({ block }: { block: Header }) => {
             </div>
             
             <div className="flex-1">
+              <div className="mb-8">
+                <span className="text-xs text-terminal-primary/60 font-mono block mb-2">THEME_SELECTION:</span>
+                <ThemeToggle />
+              </div>
               <ul className="space-y-6">
                 {block.nav.map((item) => (
                   <li key={item.id}>
                     <a 
                       href={item.link || ""} 
-                      className="block text-2xl font-display text-terminal-green hover:bg-terminal-green hover:text-terminal-black px-2 py-1 transition-colors"
+                      className="block text-2xl font-display text-terminal-primary hover:bg-terminal-primary hover:text-terminal-black px-2 py-1 transition-colors"
                     >
                       &gt; {item.label}
                     </a>
@@ -133,13 +141,13 @@ export const Header = ({ block }: { block: Header }) => {
               </ul>
             </div>
 
-            <div className="mt-8 pt-6 border-t-2 border-terminal-green">
+            <div className="mt-8 pt-6 border-t-2 border-terminal-primary">
               {block.cta?.label && (
                  <TerminalButton href={block.cta.link || "#"} className="w-full text-center">
                     {block.cta.label}
                  </TerminalButton>
               )}
-              <div className="mt-4 text-center text-terminal-green/50 font-mono text-sm">
+              <div className="mt-4 text-center text-terminal-primary/50 font-mono text-sm">
                 VAULT-TEC PROTOCOL v1.0.2
               </div>
             </div>

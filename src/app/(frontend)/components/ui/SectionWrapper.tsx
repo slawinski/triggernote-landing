@@ -17,7 +17,7 @@ export const SectionWrapper: React.FC<SectionWrapperProps> = ({
     <section
       id={id}
       className={`relative py-16 lg:py-24 overflow-hidden ${
-        !noBorder ? "border-b-2 border-terminal-green" : ""
+        !noBorder ? "border-b-2 border-terminal-primary" : ""
       } ${className}`}
     >
       <div className="container px-4 mx-auto">{children}</div>
