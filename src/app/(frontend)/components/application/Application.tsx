@@ -7,7 +7,7 @@ type Application = Extract<Page["layout"][0], { blockType: "application" }>;
 
 export const Application = ({ block }: { block: Application }) => {
   return (
-    <section className="relative py-16 overflow-hidden border-b-2 border-terminal-primary">
+    <section id="download" className="relative py-16 overflow-hidden border-b-2 border-terminal-primary">
       <div className="container px-4 mx-auto">
         <div className="flex flex-wrap items-center -m-8">
           <div className="w-full md:w-1/2 p-8">

@@ -14,6 +14,14 @@ export const Header = ({ block }: { block: Header }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   useDetectOutsideClick(menuRef, () => setIsOpen(false));
 
+  const navigation = [
+    { label: "About", link: "#about" },
+    { label: "Features", link: "#features" },
+    { label: "Download", link: "#download" },
+    { label: "Survivor Logs", link: "#testimonials" },
+    { label: "Manual", link: "#faq" },
+  ];
+
   return (
     <section className="relative overflow-hidden border-b-2 border-terminal-primary bg-terminal-black">
       <div className="container px-4 mx-auto">
@@ -36,12 +44,12 @@ export const Header = ({ block }: { block: Header }) => {
               </div>
               <div className="w-auto hidden lg:block">
                 <ul className="flex items-center mr-12">
-                  {block.nav.map((item) => (
+                  {navigation.map((item, idx) => (
                     <li
-                      key={item.id}
+                      key={idx}
                       className="mr-12 text-terminal-primary text-2xl font-medium tracking-tighter hover:text-terminal-primary/80 font-display"
                     >
-                      <a href={item.link || ""}>[{item.label}]</a>
+                      <a href={item.link}>[{item.label}]</a>
                     </li>
                   ))}
                 </ul>
@@ -128,11 +136,12 @@ export const Header = ({ block }: { block: Header }) => {
                 <ThemeToggle />
               </div>
               <ul className="space-y-6">
-                {block.nav.map((item) => (
-                  <li key={item.id}>
+                {navigation.map((item, idx) => (
+                  <li key={idx}>
                     <a 
-                      href={item.link || ""} 
+                      href={item.link} 
                       className="block text-3xl font-display text-terminal-primary hover:bg-terminal-primary hover:text-terminal-black px-2 py-1 transition-colors"
+                      onClick={() => setIsOpen(false)}
                     >
                       &gt; {item.label}
                     </a>

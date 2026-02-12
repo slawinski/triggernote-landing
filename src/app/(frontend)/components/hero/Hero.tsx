@@ -7,7 +7,7 @@ type Hero = Extract<Page["layout"][0], { blockType: "hero" }>;
 
 export const Hero = ({ block }: { block: Hero }) => {
   return (
-    <section className="relative overflow-hidden min-h-[80vh] flex items-center border-b-2 border-terminal-primary">
+    <section id="hero" className="relative overflow-hidden min-h-[80vh] flex items-center border-b-2 border-terminal-primary">
        <div className="scanline"></div>
       <div className="relative pt-20 pb-24 lg:pb-40 w-full">
         <div className="relative z-10 container px-4 mx-auto">
