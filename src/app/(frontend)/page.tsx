@@ -9,6 +9,8 @@ import {
   Footer,
   Cookies,
   Header,
+  Testimonials,
+  FAQ,
 } from "./components";
 import { Page } from "@/payload-types";
 import { notFound } from "next/navigation";
@@ -44,8 +46,11 @@ export default async function HomePage() {
   });
 
   if (!page) {
+    console.log("No page document found for slug 'index'");
     return notFound();
   }
+
+  console.log("Rendering page with layout blocks:", page.layout?.length);
 
   let footer = null;
   try {
@@ -67,8 +72,11 @@ export default async function HomePage() {
 
   return (
     <>
-      <div className="page">
+      <div className="page bg-terminal-black min-h-screen relative">
+        <div className="vignette"></div>
         {page.layout?.map((block) => renderBlock(block))}
+        <Testimonials />
+        <FAQ />
       </div>
       <Footer data={footer} />
       <Cookies data={cookieConsent} />

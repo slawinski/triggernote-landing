@@ -1,35 +1,38 @@
 import React from "react";
 import Image from "next/image";
 import { Page } from "@/payload-types";
+import { TerminalCard } from "../ui/TerminalCard";
 
 type Application = Extract<Page["layout"][0], { blockType: "application" }>;
 
 export const Application = ({ block }: { block: Application }) => {
   return (
-    <section className="relative py-16 overflow-hidden border-b-2 border-[#33ff33]">
+    <section className="relative py-16 overflow-hidden border-b-2 border-terminal-green">
       <div className="container px-4 mx-auto">
         <div className="flex flex-wrap items-center -m-8">
           <div className="w-full md:w-1/2 p-8">
-            <div className="relative terminal-box p-4 bg-[#050a05] max-w-max mx-auto">
-              <Image
-                className="relative mx-auto opacity-90 green-monochrome"
-                src="/nightsable-assets/images/application-section/phone.png"
-                alt="Phone"
-                width={400}
-                height={400}
-              />
-              {/* Scanline overlay for the phone image */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-10 pointer-events-none bg-[length:100%_2px,3px_100%]"></div>
-            </div>
+            <TerminalCard className="max-w-max mx-auto p-4" title="PIP-BOY 3000 MARK IV">
+              <div className="relative">
+                <Image
+                  className="relative mx-auto opacity-90 green-monochrome"
+                  src="/nightsable-assets/images/application-section/phone.png"
+                  alt="Phone"
+                  width={400}
+                  height={400}
+                />
+                {/* CRT Mesh Overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(51,255,51,0.06),rgba(0,0,0,0.02),rgba(51,255,51,0.06))] z-10 pointer-events-none bg-[length:100%_2px,3px_100%]"></div>
+              </div>
+            </TerminalCard>
           </div>
           <div className="w-full md:w-1/2 p-8">
-            <div className="inline-block mb-4 px-2 py-1 border border-[#33ff33] text-sm text-[#33ff33] font-medium tracking-tighter uppercase">
+            <div className="inline-block mb-4 px-2 py-1 border border-terminal-green text-sm text-terminal-green font-display tracking-tighter uppercase">
               &gt; EXECUTE: {block.tagline}
             </div>
-            <h2 className="font-heading mb-6 text-6xl lg:text-7xl text-[#33ff33] tracking-tighter uppercase">
+            <h2 className="font-display mb-6 text-5xl lg:text-7xl text-terminal-green tracking-tighter uppercase">
               {block.heading}
             </h2>
-            <p className="mb-6 text-[#33ff33] text-xl opacity-80 md:max-w-md font-light">
+            <p className="mb-6 text-terminal-green text-xl opacity-90 md:max-w-md font-body">
               {block.caption}
             </p>
             <div className="flex flex-wrap -m-2.5">
@@ -37,12 +40,12 @@ export const Application = ({ block }: { block: Application }) => {
                 <div key={download.id} className="w-auto p-2.5">
                   <a
                     href={download["store-links"].link}
-                    className="block hover:opacity-80 transition-opacity"
+                    className="block hover:scale-105 transition-transform duration-200"
                   >
                     {download["store-links"].image &&
                     typeof download["store-links"].image !== "string" &&
                     download["store-links"].image.url ? (
-                      <div className="border border-[#33ff33] p-1 bg-[#050a05]">
+                      <div className="border-2 border-terminal-green p-1 bg-terminal-black hover:bg-terminal-green/10 transition-colors">
                         <Image
                           src={download["store-links"].image.url}
                           alt={
