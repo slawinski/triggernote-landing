@@ -9,3 +9,4 @@ export * from "./testimonials/Testimonials";
 export * from "./faq/FAQ";
 export * from "./ThemeProvider";
 export * from "./ui/ThemeToggle";
+export * from "./ui/TerminalLog";
