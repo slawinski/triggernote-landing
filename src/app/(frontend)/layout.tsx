@@ -1,6 +1,13 @@
 import React from "react";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { VT323 } from "next/font/google";
+
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-vt323",
+});
 
 export const metadata = {
   description: "TriggerNote - Terminal Interface",
@@ -11,7 +18,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props;
 
   return (
-    <html lang="en">
+    <html lang="en" className={vt323.variable}>
       <head>
         <script
           dangerouslySetInnerHTML={{

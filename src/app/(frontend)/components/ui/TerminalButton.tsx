@@ -17,7 +17,7 @@ export const TerminalButton: React.FC<TerminalButtonProps> = ({
   type = "button",
 }) => {
   const baseClasses =
-    "terminal-button inline-block px-8 py-3 text-xl tracking-tighter uppercase";
+    "terminal-button inline-block px-8 py-3 text-2xl tracking-tighter uppercase";
   const combinedClasses = `${baseClasses} ${className}`;
 
   if (href) {

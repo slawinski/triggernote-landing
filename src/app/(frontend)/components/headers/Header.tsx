@@ -22,7 +22,7 @@ export const Header = ({ block }: { block: Header }) => {
             <div className="flex flex-wrap items-center">
               <div className="w-auto">
                 <a className="relative z-10 inline-block" href="/">
-                  <div className="text-3xl font-bold tracking-wider font-display text-terminal-primary">
+                  <div className="text-4xl font-bold tracking-wider font-display text-terminal-primary">
                     &gt; TRIGGERNOTE_
                   </div>
                 </a>
@@ -39,7 +39,7 @@ export const Header = ({ block }: { block: Header }) => {
                   {block.nav.map((item) => (
                     <li
                       key={item.id}
-                      className="mr-12 text-terminal-primary text-xl font-medium tracking-tighter hover:text-terminal-primary/80 font-display"
+                      className="mr-12 text-terminal-primary text-2xl font-medium tracking-tighter hover:text-terminal-primary/80 font-display"
                     >
                       <a href={item.link || ""}>[{item.label}]</a>
                     </li>
@@ -99,7 +99,7 @@ export const Header = ({ block }: { block: Header }) => {
             className="relative z-10 w-full max-w-sm h-full bg-terminal-black border-l-2 border-terminal-primary flex flex-col p-6 overflow-y-auto shadow-[0_0_20px_rgba(var(--terminal-primary-rgb),0.2)]"
           >
             <div className="flex items-center justify-between mb-8 border-b-2 border-terminal-primary pb-4">
-              <span className="text-xl font-display text-terminal-primary">&gt; SYSTEM MENU</span>
+              <span className="text-2xl font-display text-terminal-primary">&gt; SYSTEM MENU</span>
               <button
                 className="text-terminal-primary hover:text-terminal-primary/80"
                 aria-label="Close menu"
@@ -132,7 +132,7 @@ export const Header = ({ block }: { block: Header }) => {
                   <li key={item.id}>
                     <a 
                       href={item.link || ""} 
-                      className="block text-2xl font-display text-terminal-primary hover:bg-terminal-primary hover:text-terminal-black px-2 py-1 transition-colors"
+                      className="block text-3xl font-display text-terminal-primary hover:bg-terminal-primary hover:text-terminal-black px-2 py-1 transition-colors"
                     >
                       &gt; {item.label}
                     </a>

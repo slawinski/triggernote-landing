@@ -9,10 +9,10 @@ export const Features = ({ block }: { block: Features }) => {
     <section className="relative py-24 overflow-hidden border-b-2 border-terminal-primary">
       <div className="container px-4 mx-auto">
         <div className="mb-20 md:max-w-xl text-center mx-auto">
-          <span className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-sm text-terminal-primary font-display tracking-tighter uppercase">
+          <span className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-base text-terminal-primary font-display tracking-tighter uppercase">
              &gt; MODULE: {block.tagline}
           </span>
-          <h2 className="font-display text-5xl lg:text-7xl text-terminal-primary tracking-tighter uppercase mb-8">
+          <h2 className="font-display text-6xl lg:text-8xl text-terminal-primary tracking-tighter uppercase mb-8">
             {block.heading}
           </h2>
         </div>
@@ -22,19 +22,19 @@ export const Features = ({ block }: { block: Features }) => {
               <TerminalCard className="h-full group hover:bg-terminal-primary hover:text-terminal-black transition-colors duration-300">
                 {card.link && (
                   <a
-                    className="inline-block mb-6 px-4 py-2 text-sm text-terminal-primary font-display border border-terminal-primary group-hover:border-terminal-black group-hover:text-terminal-black transition-colors uppercase"
+                    className="inline-block mb-6 px-4 py-2 text-base text-terminal-primary font-display border border-terminal-primary group-hover:border-terminal-black group-hover:text-terminal-black transition-colors uppercase"
                     href={card.link}
                   >
                     [ ACCESS ]
                   </a>
                 )}
-                <h3 className="mb-6 text-3xl text-terminal-primary group-hover:text-terminal-black tracking-tighter uppercase font-display">
+                <h3 className="mb-6 text-4xl text-terminal-primary group-hover:text-terminal-black tracking-tighter uppercase font-display">
                   {card.label}
                 </h3>
                 <p className="mb-12 text-terminal-primary group-hover:text-terminal-black opacity-80 text-xl font-body">
                     {card.caption}
                 </p>
-                <a className="inline-block text-terminal-primary group-hover:text-terminal-black text-2xl font-display hover:underline" href={card.link || "#"}>
+                <a className="inline-block text-terminal-primary group-hover:text-terminal-black text-3xl font-display hover:underline" href={card.link || "#"}>
                    &gt;&gt; EXECUTE
                 </a>
               </TerminalCard>

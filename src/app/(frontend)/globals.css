@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
 :root {
   --background: #050a05;
   --foreground: #33ff33;
@@ -22,7 +20,8 @@
   --color-terminal-primary: var(--terminal-primary);
   --color-terminal-black: var(--terminal-black);
   
-  --font-display: "VT323", monospace;
+  --font-sans: var(--font-vt323), monospace;
+  --font-display: var(--font-vt323), monospace;
   --font-body: monospace;
 
   --animate-flicker: flicker 0.15s infinite;

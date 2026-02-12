@@ -26,10 +26,10 @@ export const Application = ({ block }: { block: Application }) => {
             </TerminalCard>
           </div>
           <div className="w-full md:w-1/2 p-8">
-            <div className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-sm text-terminal-primary font-display tracking-tighter uppercase">
+            <div className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-base text-terminal-primary font-display tracking-tighter uppercase">
               &gt; EXECUTE: {block.tagline}
             </div>
-            <h2 className="font-display mb-6 text-5xl lg:text-7xl text-terminal-primary tracking-tighter uppercase">
+            <h2 className="font-display mb-6 text-6xl lg:text-8xl text-terminal-primary tracking-tighter uppercase">
               {block.heading}
             </h2>
             <p className="mb-6 text-terminal-primary text-xl opacity-90 md:max-w-md font-body">

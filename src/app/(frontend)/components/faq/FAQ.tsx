@@ -29,10 +29,10 @@ export const FAQ = () => {
     <SectionWrapper id="faq">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <span className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-sm text-terminal-primary font-display tracking-tighter uppercase bg-terminal-black/50 backdrop-blur-sm">
+          <span className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-base text-terminal-primary font-display tracking-tighter uppercase bg-terminal-black/50 backdrop-blur-sm">
             &gt; HELP_MODULE
           </span>
-          <h2 className="font-display text-5xl lg:text-7xl text-terminal-primary tracking-tighter uppercase">
+          <h2 className="font-display text-6xl lg:text-8xl text-terminal-primary tracking-tighter uppercase">
             OVERSEER'S MANUAL
           </h2>
         </div>
@@ -43,7 +43,7 @@ export const FAQ = () => {
               key={index}
               className="border border-terminal-primary bg-terminal-black/80 p-6 hover:bg-terminal-primary/5 transition-colors"
             >
-              <h3 className="text-2xl font-display text-terminal-primary mb-3 flex items-start">
+              <h3 className="text-3xl font-display text-terminal-primary mb-3 flex items-start">
                 <span className="mr-3 text-terminal-primary/60">&gt;</span>
                 {faq.question}
               </h3>

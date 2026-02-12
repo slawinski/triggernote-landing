@@ -17,10 +17,10 @@ export const Hero = ({ block }: { block: Hero }) => {
                 <div className="mb-2 text-xs text-terminal-primary/60 font-mono">
                   &gt; BOOT_SEQUENCE_INITIATED... OK
                 </div>
-                <div className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-sm text-terminal-primary font-display tracking-tighter uppercase bg-terminal-black/50 backdrop-blur-sm">
+                <div className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-base text-terminal-primary font-display tracking-tighter uppercase bg-terminal-black/50 backdrop-blur-sm">
                   &gt; SYSTEM_MSG: {block.tagline}
                 </div>
-                <h1 className="font-display mb-8 text-5xl lg:text-7xl text-terminal-primary tracking-tighter uppercase leading-none">
+                <h1 className="font-display mb-8 text-6xl lg:text-8xl text-terminal-primary tracking-tighter uppercase leading-none">
                   {block.heading}<span className="animate-blink">_</span>
                 </h1>
                 <p className="mb-10 text-lg lg:text-2xl text-terminal-primary md:max-w-md opacity-90 leading-relaxed font-body">

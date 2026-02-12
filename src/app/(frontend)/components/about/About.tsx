@@ -12,7 +12,7 @@ export const About = ({ block }: { block: About }) => {
         <div className="relative text-center md:max-w-4xl mx-auto">
           <TerminalCard className="mb-12 text-left" title="OVERSEER_LOG_77">
               <p className="text-xl lg:text-3xl text-terminal-primary tracking-tight leading-relaxed font-body">
-                <span className="opacity-50 mr-2 font-display">&gt; INFO:</span>
+                <span className="opacity-50 mr-2 font-display text-xl">&gt; INFO:</span>
                 {block.content}
                 <span className="animate-blink ml-1 inline-block w-3 h-6 bg-terminal-primary align-middle"></span>
               </p>
