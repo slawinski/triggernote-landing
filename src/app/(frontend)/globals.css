@@ -80,15 +80,141 @@
     }
   }
 
-  @keyframes typewriter {
-    0% {
-      width: 0;
+    @keyframes typewriter {
+
+      0% { width: 0; }
+
+      100% { width: 100%; }
+
     }
-    100% {
-      width: 100%;
-    }
+
+  
+
+            @keyframes degauss {
+
+  
+
+              0% {
+
+  
+
+                transform: scale(1) rotate(0deg);
+
+  
+
+                filter: brightness(1) contrast(1);
+
+  
+
+              }
+
+  
+
+              10% {
+
+  
+
+                transform: scale(1.05) rotate(2deg) skewX(1deg);
+
+  
+
+                filter: brightness(3.5) contrast(2);
+
+  
+
+              }
+
+  
+
+              20% {
+
+  
+
+                transform: scale(0.98) rotate(-2deg) skewX(-1deg);
+
+  
+
+                filter: brightness(1.5) contrast(1.5);
+
+  
+
+              }
+
+  
+
+              40% {
+
+  
+
+                transform: scale(1.01) rotate(0.5deg) translate(2px, -1px);
+
+  
+
+                filter: brightness(1.2) contrast(1.2);
+
+  
+
+              }
+
+  
+
+              60% {
+
+  
+
+                transform: scale(1) rotate(-0.2deg) translate(-2px, 1px);
+
+  
+
+                filter: brightness(1.1) contrast(1.1);
+
+  
+
+              }
+
+  
+
+              100% {
+
+  
+
+                transform: scale(1) rotate(0deg);
+
+  
+
+                filter: brightness(1) contrast(1);
+
+  
+
+              }
+
+  
+
+            }
+
   }
-}
+
+  
+
+  .degaussing {
+
+  
+
+    animation: degauss 0.4s ease-out forwards;
+
+  
+
+    pointer-events: none;
+
+  
+
+    user-select: none;
+
+  
+
+  }
+
+  
 
 html {
   scroll-behavior: smooth;

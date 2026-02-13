@@ -41,7 +41,19 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const toggleTheme = () => {
     const newTheme = theme === "green" ? "amber" : "green";
-    setTheme(newTheme);
+    
+    // Start Degaussing Effect
+    document.documentElement.classList.add('degaussing');
+    
+    // Switch theme color at the peak of the flash (approx 100ms)
+    setTimeout(() => {
+      setTheme(newTheme);
+    }, 100);
+    
+    // Cleanup class after animation completes
+    setTimeout(() => {
+      document.documentElement.classList.remove('degaussing');
+    }, 400);
   };
 
   return (
