@@ -6,6 +6,8 @@
   --terminal-primary: #33ff33;
   --terminal-primary-rgb: 51, 255, 51;
   --terminal-black: #050a05;
+  --bloom-size: 6px;
+  --bloom-effect: 0 0 var(--bloom-size) var(--terminal-primary);
 }
 
 .theme-amber {
@@ -98,21 +100,18 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
   position: relative;
-  text-shadow: 0 0 5px var(--terminal-primary);
+  text-shadow: var(--bloom-effect);
   transition:
     color 0.3s ease,
     text-shadow 0.3s ease;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-button,
-.font-display {
+h1, h2, h3, h4, h5, h6, button, .font-display {
+
   font-family: var(--font-display);
+
+  text-shadow: var(--bloom-effect);
+
 }
 
 /* CRT Overlay Effect */
@@ -180,8 +179,8 @@ body::after {
   border: 2px solid var(--terminal-primary);
   background-color: rgba(5, 10, 5, 0.9);
   box-shadow:
-    0 0 10px var(--terminal-primary),
-    inset 0 0 10px var(--terminal-primary);
+    var(--bloom-effect),
+    inset var(--bloom-effect);
   position: relative;
   transition:
     border-color 0.3s ease,
@@ -222,12 +221,15 @@ body::after {
   font-family: var(--font-display);
   font-size: 1.25rem;
   letter-spacing: 0.1em;
+  box-shadow:
+    var(--bloom-effect),
+    inset var(--bloom-effect);
 }
 
 .terminal-button:hover {
   background-color: var(--terminal-primary);
   color: var(--terminal-black);
-  box-shadow: 0 0 15px var(--terminal-primary);
+  box-shadow: var(--bloom-effect);
 }
 
 .scanline-fixed {
@@ -271,8 +273,34 @@ body::after {
   filter: sepia(100%) hue-rotate(50deg) saturate(500%) contrast(1.2);
 }
 
+.border-terminal-primary {
+  box-shadow:
+    var(--bloom-effect),
+    inset var(--bloom-effect);
+}
+
+.terminal-badge {
+  display: inline-block;
+  border: 2px solid var(--terminal-primary);
+  background-color: rgba(5, 10, 5, 0.9);
+  color: var(--terminal-primary);
+  box-shadow:
+    var(--bloom-effect),
+    inset var(--bloom-effect);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+}
+
+section.border-t-2.border-terminal-primary {
+  box-shadow:
+    0 -4px var(--bloom-size) -4px var(--terminal-primary),
+    inset 0 4px var(--bloom-size) -4px var(--terminal-primary);
+}
+
 section.border-b-2.border-terminal-primary {
   box-shadow:
-    0 4px 5px -4px var(--terminal-primary),
-    inset 0 -4px 5px -4px var(--terminal-primary);
+    0 4px var(--bloom-size) -4px var(--terminal-primary),
+    inset 0 -4px var(--bloom-size) -4px var(--terminal-primary);
 }

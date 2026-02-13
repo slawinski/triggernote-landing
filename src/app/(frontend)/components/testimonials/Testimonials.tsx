@@ -12,7 +12,7 @@ export const Testimonials = ({ block }: { block: TestimonialsBlockProps }) => {
   return (
     <SectionWrapper id="testimonials">
       <div className="text-center mb-16">
-        <span className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-base text-terminal-primary font-display tracking-tighter uppercase bg-terminal-black/50 backdrop-blur-sm">
+        <span className="terminal-badge mb-4 tracking-tighter">
           &gt; {block.tagline}
         </span>
         <h2 className="font-display text-6xl lg:text-8xl text-terminal-primary tracking-tighter uppercase">

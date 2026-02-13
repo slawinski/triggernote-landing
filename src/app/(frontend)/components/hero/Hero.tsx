@@ -16,7 +16,7 @@ export const Hero = ({ block }: { block: Hero }) => {
           <div className="flex flex-wrap items-center -m-8">
             <div className="relative z-10 w-full md:w-1/2 lg:w-7/12 p-8">
               <div className="md:max-w-3xl">
-                <div className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-base text-terminal-primary font-display tracking-tighter uppercase bg-terminal-black/50 backdrop-blur-sm">
+                <div className="terminal-badge mb-4 tracking-tighter">
                   &gt; SYSTEM_MSG: {block.tagline}
                 </div>
                 <h1 className="font-display mb-8 text-6xl lg:text-8xl text-terminal-primary tracking-tighter uppercase leading-none">
