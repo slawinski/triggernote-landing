@@ -13,33 +13,84 @@ export const ThemeToggle: React.FC = () => {
         window.AudioContext || (window as any).webkitAudioContext;
       const audioCtx = new AudioContextClass();
 
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
+      // 1. The "Mechanical Snap" (Extremely sharp, short transient)
+      const snap = audioCtx.createOscillator();
+      const snapGain = audioCtx.createGain();
+      snap.type = "square";
+      snap.frequency.setValueAtTime(1800, audioCtx.currentTime);
+      snap.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.005);
+      
+      snapGain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+      snapGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.005);
+      
+      snap.connect(snapGain);
+      snapGain.connect(audioCtx.destination);
 
-      // Sharp, metallic square wave for the "clack"
-      osc.type = "square";
-      osc.frequency.setValueAtTime(200, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(
-        0.01,
-        audioCtx.currentTime + 0.02
-      );
+      // 2. The "Internal Click" (Duller mechanical impact)
+      const click = audioCtx.createOscillator();
+      const clickGain = audioCtx.createGain();
+      click.type = "square";
+      click.frequency.setValueAtTime(400, audioCtx.currentTime);
+      click.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.01);
+      
+      clickGain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      clickGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.01);
+      
+      click.connect(clickGain);
+      clickGain.connect(audioCtx.destination);
 
-      // Extremely fast decay (20ms) for a clean click
-      gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(
-        0.001,
-        audioCtx.currentTime + 0.02
-      );
+      // 3. The "Mechanical Ping" (Very high, very short metal-on-metal tick)
+      const ping = audioCtx.createOscillator();
+      const pingGain = audioCtx.createGain();
+      ping.type = "sine";
+      ping.frequency.setValueAtTime(4500, audioCtx.currentTime);
+      
+      pingGain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      pingGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.003);
+      
+      ping.connect(pingGain);
+      pingGain.connect(audioCtx.destination);
 
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
+      snap.start();
+      click.start();
+      ping.start();
 
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.03);
+      snap.stop(audioCtx.currentTime + 0.005);
+      click.stop(audioCtx.currentTime + 0.01);
+      ping.stop(audioCtx.currentTime + 0.003);
 
-      setTimeout(() => audioCtx.close(), 100);
+      setTimeout(() => audioCtx.close(), 50);
     } catch (e) {
       console.error("Audio not supported", e);
+    }
+  };
+
+  const playEndSound = () => {
+    try {
+      const AudioContextClass =
+        window.AudioContext || (window as any).webkitAudioContext;
+      const audioCtx = new AudioContextClass();
+
+      // Sharp, gentle "settle" click
+      const settle = audioCtx.createOscillator();
+      const settleGain = audioCtx.createGain();
+
+      settle.type = "square";
+      settle.frequency.setValueAtTime(1200, audioCtx.currentTime);
+      settle.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.005);
+
+      settleGain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+      settleGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.005);
+
+      settle.connect(settleGain);
+      settleGain.connect(audioCtx.destination);
+
+      settle.start();
+      settle.stop(audioCtx.currentTime + 0.005);
+
+      setTimeout(() => audioCtx.close(), 50);
+    } catch (e) {
+      // Silent fail
     }
   };
 
@@ -49,13 +100,13 @@ export const ThemeToggle: React.FC = () => {
     setIsDegaussing(true);
     toggleTheme();
 
-    // Align click sound with the visual peak (3% of 0.8s is approx 24ms)
     setTimeout(() => {
       playDegaussSound();
     }, 24);
 
     setTimeout(() => {
       setIsDegaussing(false);
+      playEndSound();
     }, 800);
   };
 
@@ -69,7 +120,6 @@ export const ThemeToggle: React.FC = () => {
             : "cursor-pointer shadow-[0_0_10px_rgba(var(--terminal-primary-rgb),0.2)] hover:shadow-[0_0_15px_rgba(var(--terminal-primary-rgb),0.4)]"
         }`}
       >
-        {/* GREEN SWITCH */}
         <div
           className={`
           w-10 h-10 flex items-center justify-center
@@ -83,7 +133,6 @@ export const ThemeToggle: React.FC = () => {
           <p className="font-display text-2xl font-bold m-0 leading-none">G</p>
         </div>
 
-        {/* AMBER SWITCH */}
         <div
           className={`
           w-10 h-10 flex items-center justify-center
