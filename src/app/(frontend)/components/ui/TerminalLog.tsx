@@ -21,41 +21,41 @@ const LOG_GROUPS: LogGroup[] = [
   {
     entries: [
       {
-        text: "Scanning local network for secure inventory sync signals...",
+        text: "Scanning local hardware for encrypted storage modules...",
         spinner: true,
         delay: SPINNER_HOLD,
       },
-      { text: "Signal strenght: 98%", indent: 1, delay: FAST_DELAY },
-      { text: "Hub: SECURE_VAULT_01", indent: 1, delay: FAST_DELAY },
-      { text: "Latency: 12ms", indent: 1, delay: FAST_DELAY },
-      { text: "Status: CONNECTED", indent: 1, delay: FAST_DELAY },
+      { text: "HARDWARE_LINK: STABLE", indent: 1, delay: FAST_DELAY },
+      { text: "DRIVE: SECURE_VAULT_01", indent: 1, delay: FAST_DELAY },
+      { text: "READ_SPEED: 450MB/s", indent: 1, delay: FAST_DELAY },
+      { text: "STATUS: MOUNTED", indent: 1, delay: FAST_DELAY },
     ],
   },
   {
     entries: [
       {
-        text: "Mapping firearm serial index against global manufacturer database...",
+        text: "Mapping firearm serial index against encrypted local manifest...",
         spinner: true,
         delay: SPINNER_HOLD,
       },
-      { text: "Glock 17 GEN 5 [OK]", indent: 1, delay: FAST_DELAY },
-      { text: "Sig Sauer P320 [OK]", indent: 1, delay: FAST_DELAY },
+      { text: "GLOCK 17 GEN 5 [OK]", indent: 1, delay: FAST_DELAY },
+      { text: "SIG SAUER P320 [OK]", indent: 1, delay: FAST_DELAY },
       { text: "S&W M&P9 M2.0 [OK]", indent: 1, delay: FAST_DELAY },
-      { text: "Ruger Mark IV [OK]", indent: 1, delay: FAST_DELAY },
+      { text: "RUGER MARK IV [OK]", indent: 1, delay: FAST_DELAY },
       { text: "INDEXING COMPLETE", indent: 1, delay: FAST_DELAY },
     ],
   },
   {
     entries: [
       {
-        text: "Encrypting sensitive inventory data using AES-256 protocols...",
+        text: "Encrypting local inventory database using AES-256...",
         spinner: true,
         delay: SPINNER_HOLD,
       },
-      { text: "Handshake initiated...", indent: 1, delay: FAST_DELAY },
-      { text: "Identity verified...", indent: 1, delay: FAST_DELAY },
-      { text: "Key Rotation...", indent: 1, delay: FAST_DELAY },
-      { text: "Success: DATA SECURED", indent: 1, delay: FAST_DELAY },
+      { text: "FS_HANDSHAKE: SUCCESS", indent: 1, delay: FAST_DELAY },
+      { text: "LOCAL_IDENTITY: VERIFIED", indent: 1, delay: FAST_DELAY },
+      { text: "KEY_ROTATION: COMPLETE", indent: 1, delay: FAST_DELAY },
+      { text: "SUCCESS: DATA SECURED", indent: 1, delay: FAST_DELAY },
     ],
   },
   {
@@ -65,10 +65,10 @@ const LOG_GROUPS: LogGroup[] = [
         spinner: true,
         delay: SPINNER_HOLD,
       },
-      { text: "Humidity: 42%", indent: 1, delay: FAST_DELAY },
-      { text: "Oxidation Risk: LOW", indent: 1, delay: FAST_DELAY },
-      { text: "Temp: 21.5C", indent: 1, delay: FAST_DELAY },
-      { text: "Status: OPTIMAL", indent: 1, delay: FAST_DELAY },
+      { text: "HUMIDITY: 42%", indent: 1, delay: FAST_DELAY },
+      { text: "OXIDATION RISK: LOW", indent: 1, delay: FAST_DELAY },
+      { text: "TEMP: 21.5C", indent: 1, delay: FAST_DELAY },
+      { text: "STATUS: OPTIMAL", indent: 1, delay: FAST_DELAY },
     ],
   },
   {
@@ -83,9 +83,9 @@ const LOG_GROUPS: LogGroup[] = [
         spinner: true,
         delay: SPINNER_HOLD,
       },
-      { text: "Integrity: 100.0%", indent: 1, delay: FAST_DELAY },
-      { text: "Conflicts: 0", indent: 1, delay: FAST_DELAY },
-      { text: "Status: NOMINAL", indent: 1, delay: FAST_DELAY },
+      { text: "INTEGRITY: 100.0%", indent: 1, delay: FAST_DELAY },
+      { text: "CONFLICTS: 0", indent: 1, delay: FAST_DELAY },
+      { text: "STATUS: NOMINAL", indent: 1, delay: FAST_DELAY },
     ],
   },
   {
@@ -95,7 +95,7 @@ const LOG_GROUPS: LogGroup[] = [
         spinner: true,
         delay: SPINNER_HOLD,
       },
-      { text: "9mm Luger: 2450", indent: 1, delay: FAST_DELAY },
+      { text: "9mm LUGER: 2450", indent: 1, delay: FAST_DELAY },
       { text: ".45 ACP: 820", indent: 1, delay: FAST_DELAY },
       { text: "5.56 NATO: 1200", indent: 1, delay: FAST_DELAY },
       { text: ".22 LR: 5000", indent: 1, delay: FAST_DELAY },
@@ -105,24 +105,24 @@ const LOG_GROUPS: LogGroup[] = [
   {
     entries: [
       {
-        text: "Syncing with secure cloud backup servers...",
+        text: "Backing up database to external hardware module...",
         spinner: true,
         delay: SPINNER_HOLD,
       },
-      { text: "Primary Link Failed", indent: 1, delay: 800 },
-      { text: "Failover Active", indent: 1, delay: FAST_DELAY },
-      { text: "Uploading Cache...", indent: 1, delay: FAST_DELAY },
-      { text: "DONE: 100% SYNCED", indent: 1, delay: FAST_DELAY },
+      { text: "PRIMARY_DRIVE: DISCONNECTED", indent: 1, delay: 800 },
+      { text: "SECONDARY_FAILOVER: ACTIVE", indent: 1, delay: FAST_DELAY },
+      { text: "WRITING TO DISK...", indent: 1, delay: FAST_DELAY },
+      { text: "DONE: 100% SECURED", indent: 1, delay: FAST_DELAY },
     ],
   },
   {
     entries: [
-      { text: "Performing System Self-Test...", delay: FAST_DELAY },
+      { text: "PERFORMING SYSTEM SELF-TEST...", delay: FAST_DELAY },
       { text: "CPU: OK", indent: 1, delay: 100 },
-      { text: "Memory: OK", indent: 1, delay: 100 },
-      { text: "Storage: OK", indent: 1, delay: 100 },
-      { text: "Network: OK", indent: 1, delay: 100 },
-      { text: "Status: NOMINAL", indent: 1, delay: FAST_DELAY },
+      { text: "MEMORY: OK", indent: 1, delay: 100 },
+      { text: "STORAGE: OK", indent: 1, delay: 100 },
+      { text: "HARDWARE_KEY: DETECTED", indent: 1, delay: 100 },
+      { text: "STATUS: NOMINAL", indent: 1, delay: FAST_DELAY },
     ],
   },
   {
@@ -132,9 +132,9 @@ const LOG_GROUPS: LogGroup[] = [
         spinner: true,
         delay: SPINNER_HOLD,
       },
-      { text: "Login: 192.168.1.104", indent: 1, delay: FAST_DELAY },
-      { text: "Access: AUTHORIZED", indent: 1, delay: FAST_DELAY },
-      { text: "Welcome, ADMINISTRATOR", indent: 1, delay: FAST_DELAY },
+      { text: "USER_LOGIN: LOCAL_CONSOLE", indent: 1, delay: FAST_DELAY },
+      { text: "ACCESS: AUTHORIZED", indent: 1, delay: FAST_DELAY },
+      { text: "WELCOME, ADMINISTRATOR", indent: 1, delay: FAST_DELAY },
     ],
   },
   {
@@ -144,15 +144,15 @@ const LOG_GROUPS: LogGroup[] = [
         spinner: true,
         delay: SPINNER_HOLD,
       },
-      { text: "Purge: 0 ENTRIES", indent: 1, delay: FAST_DELAY },
-      { text: "Index: 124 ASSETS", indent: 1, delay: FAST_DELAY },
-      { text: "Compression: 8%", indent: 1, delay: FAST_DELAY },
-      { text: "Status: OPTIMIZED", indent: 1, delay: FAST_DELAY },
+      { text: "PURGE: 0 OBSOLETE", indent: 1, delay: FAST_DELAY },
+      { text: "INDEX: 124 ASSETS", indent: 1, delay: FAST_DELAY },
+      { text: "COMPRESSION: 8%", indent: 1, delay: FAST_DELAY },
+      { text: "STATUS: OPTIMIZED", indent: 1, delay: FAST_DELAY },
     ],
   },
   {
     entries: [
-      { text: "Initiating Comprehensive Backup...", delay: 1200 },
+      { text: "INITIATING COMPREHENSIVE BACKUP...", delay: 1200 },
       { text: "[.                   ] 5%", indent: 1, delay: 200 },
       {
         text: "[..                  ] 10%",
@@ -269,6 +269,71 @@ const LOG_GROUPS: LogGroup[] = [
         replace: true,
       },
       { text: "BACKUP COMPLETE.", indent: 1, delay: 800 },
+    ],
+  },
+  {
+    entries: [
+      { text: "Loading ARMORY_INDEX with 124 assets...", delay: 100 },
+      {
+        text: "READ /db/inventory/handguns.json [OK] in 42ms",
+        indent: 1,
+        delay: 50,
+      },
+      {
+        text: "○ Loading ballistics/calculator module...",
+        delay: 300,
+        indent: 1,
+        replace: true,
+      },
+      {
+        text: "✓ Loaded ballistics/calculator (124 local dependencies)",
+        indent: 1,
+        delay: FAST_DELAY,
+      },
+      {
+        text: "READ /storage/images/glock-17.png [OK] in 72ms",
+        indent: 1,
+        delay: 20,
+      },
+      {
+        text: "READ /storage/images/ammo-9mm.png [OK] in 89ms",
+        indent: 1,
+        delay: 20,
+      },
+      {
+        text: "✓ View generation complete (OFF-GRID_MODE)",
+        indent: 1,
+        delay: 100,
+      },
+    ],
+  },
+  {
+    entries: [
+      {
+        text: "Reconciling OFFLINE_DATABASE with hardware storage...",
+        spinner: true,
+        delay: 1200,
+      },
+      { text: "CHECK /vault/integrity [OK] in 15ms", indent: 1, delay: 50 },
+      { text: "VERIFY /inventory/assets [OK] in 220ms", indent: 1, delay: 80 },
+      {
+        text: "DATABASE_SYNC: SUCCESS (AIR-GAPPED)",
+        indent: 1,
+        delay: FAST_DELAY,
+      },
+    ],
+  },
+  {
+    entries: [
+      {
+        text: "Scanning encrypted ammo manifest...",
+        spinner: true,
+        delay: 1500,
+      },
+      { text: "QUERY 9mm inventory... [OK] in 34ms", indent: 1, delay: 40 },
+      { text: "QUERY 5.56 inventory... [OK] in 41ms", indent: 1, delay: 40 },
+      { text: "WRITE usage_logs.bin [OK] in 12ms", indent: 1, delay: 30 },
+      { text: "STATUS: MANIFEST_UPDATED", indent: 1, delay: FAST_DELAY },
     ],
   },
 ];
