@@ -412,6 +412,16 @@ body::after {
     contrast(1.2);
 }
 
+.terminal-icon-mask {
+  background-color: var(--terminal-primary);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  display: inline-block;
+  transition: opacity 0.2s ease-in-out;
+  filter: drop-shadow(0 0 2px var(--terminal-primary));
+}
+
 .theme-amber .terminal-monochrome {
   --theme-hue: -10deg; /* Amber/Yellow hue */
 }

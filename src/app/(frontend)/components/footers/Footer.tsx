@@ -78,12 +78,15 @@ export const Footer = ({ data }: { data: FooterType | null }) => {
                       {social.icon &&
                       typeof social.icon !== "string" &&
                       social.icon.url ? (
-                        <Image
-                          src={social.icon.url}
-                          alt={social.platform}
-                          width={25}
-                          height={25}
-                          className="terminal-monochrome"
+                        <div
+                          className="terminal-icon-mask"
+                          style={{
+                            width: 25,
+                            height: 25,
+                            maskImage: `url(${social.icon.url})`,
+                            WebkitMaskImage: `url(${social.icon.url})`,
+                          }}
+                          aria-label={social.platform}
                         />
                       ) : (
                         <div className="w-[25px] h-[25px] bg-terminal-primary animate-pulse opacity-50" />
