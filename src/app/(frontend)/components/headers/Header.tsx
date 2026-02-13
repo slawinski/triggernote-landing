@@ -40,7 +40,6 @@ export const Header = ({ block }: { block: Header }) => {
           <div className="w-auto p-2">
             <div className="flex flex-wrap items-center">
               <div className="w-auto hidden lg:block mr-6">
-                <ThemeToggle />
               </div>
               <div className="w-auto hidden lg:block">
                 <ul className="flex items-center mr-12">
@@ -55,13 +54,7 @@ export const Header = ({ block }: { block: Header }) => {
                 </ul>
               </div>
               <div className="w-auto hidden lg:block">
-                {block.cta?.label && (
-                  <div className="inline-block">
-                    <TerminalButton href={block.cta.link || "#"}>
-                      {block.cta.label}
-                    </TerminalButton>
-                  </div>
-                )}
+                <ThemeToggle />
               </div>
               <div className="w-auto lg:hidden">
                 <button
@@ -131,10 +124,6 @@ export const Header = ({ block }: { block: Header }) => {
             </div>
             
             <div className="flex-1">
-              <div className="mb-8">
-                <span className="text-xs text-terminal-primary/60 font-mono block mb-2">THEME_SELECTION:</span>
-                <ThemeToggle />
-              </div>
               <ul className="space-y-6">
                 {navigation.map((item, idx) => (
                   <li key={idx}>
@@ -151,12 +140,10 @@ export const Header = ({ block }: { block: Header }) => {
             </div>
 
             <div className="mt-8 pt-6 border-t-2 border-terminal-primary">
-              {block.cta?.label && (
-                 <TerminalButton href={block.cta.link || "#"} className="w-full text-center">
-                    {block.cta.label}
-                 </TerminalButton>
-              )}
-              <div className="mt-4 text-center text-terminal-primary/50 font-mono text-sm">
+              <div className="flex justify-center mb-6">
+                <ThemeToggle />
+              </div>
+              <div className="text-center text-terminal-primary/50 font-mono text-sm">
                 VAULT-TEC PROTOCOL v1.0.2
               </div>
             </div>
