@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { Page } from "@/payload-types";
 import { TerminalButton } from "../ui/TerminalButton";
 import { TerminalLog } from "../ui/TerminalLog";

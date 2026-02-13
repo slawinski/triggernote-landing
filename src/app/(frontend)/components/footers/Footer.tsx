@@ -1,19 +1,20 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Footer as FooterType } from "@/payload-types";
 
 export const Footer = ({ data }: { data: FooterType | null }) => {
   if (!data) return null;
   return (
     <React.Fragment>
-      <section className="py-24 overflow-hidden border-t-2 border-terminal-primary bg-terminal-black relative">
-         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-terminal-primary/50 to-transparent opacity-50"></div>
+      <section className="py-24 overflow-hidden border-t-2 border-terminal-primary relative">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-terminal-primary/50 to-transparent opacity-50"></div>
         <div className="container px-4 mx-auto">
-          <a className="relative z-10 inline-block mb-20" href="/">
+          <Link className="relative z-10 inline-block mb-20" href="/">
             <div className="text-4xl font-bold tracking-wider text-terminal-primary font-display">
               &gt; TRIGGERNOTE_
             </div>
-          </a>
+          </Link>
           <div className="flex flex-wrap items-end -m-8 mb-20">
             <div className="w-full md:w-1/2 p-8">
               <div className="md:max-w-md">
@@ -31,7 +32,7 @@ export const Footer = ({ data }: { data: FooterType | null }) => {
                     className="absolute right-0 top-0 flex items-center justify-center px-8 h-full bg-terminal-primary hover:bg-terminal-black text-terminal-black hover:text-terminal-primary border-l-2 border-terminal-primary transition-colors group font-display font-bold text-2xl uppercase tracking-wider"
                     href="#"
                   >
-                     [ SUBMIT ]
+                    [ SUBMIT ]
                   </a>
                 </div>
               </div>

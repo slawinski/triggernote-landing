@@ -165,7 +165,7 @@ export const TerminalLog: React.FC<{ className?: string; itemsToShow?: number }>
 
       timeoutId = setTimeout(() => {
         setLogs((prev) => {
-          let newLogs = [...prev];
+          const newLogs = [...prev];
           if (nextEntry.replace && newLogs.length > 0) {
             newLogs[newLogs.length - 1] = nextEntry;
           } else {

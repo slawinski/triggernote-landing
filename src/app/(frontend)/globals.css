@@ -19,7 +19,7 @@
   --color-foreground: var(--foreground);
   --color-terminal-primary: var(--terminal-primary);
   --color-terminal-black: var(--terminal-black);
-  
+
   --font-sans: var(--font-vt323), monospace;
   --font-display: var(--font-vt323), monospace;
   --font-body: monospace;
@@ -30,30 +30,61 @@
   --animate-typewriter: typewriter 2s steps(40, end);
 
   @keyframes flicker {
-    0% { opacity: 0.97; }
-    5% { opacity: 0.95; }
-    10% { opacity: 0.9; }
-    15% { opacity: 0.95; }
-    20% { opacity: 0.99; }
-    50% { opacity: 0.95; }
-    55% { opacity: 0.9; }
-    60% { opacity: 0.99; }
-    100% { opacity: 0.97; }
+    0% {
+      opacity: 0.97;
+    }
+    5% {
+      opacity: 0.95;
+    }
+    10% {
+      opacity: 0.9;
+    }
+    15% {
+      opacity: 0.95;
+    }
+    20% {
+      opacity: 0.99;
+    }
+    50% {
+      opacity: 0.95;
+    }
+    55% {
+      opacity: 0.9;
+    }
+    60% {
+      opacity: 0.99;
+    }
+    100% {
+      opacity: 0.97;
+    }
   }
 
   @keyframes scan {
-    0% { background-position: 0 -100vh; }
-    100% { background-position: 0 100vh; }
+    0% {
+      background-position: 0 -100vh;
+    }
+    100% {
+      background-position: 0 100vh;
+    }
   }
 
   @keyframes blink {
-    from, to { opacity: 1; }
-    50% { opacity: 0; }
+    from,
+    to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 
   @keyframes typewriter {
-    0% { width: 0; }
-    100% { width: 100%; }
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
   }
 }
 
@@ -68,10 +99,19 @@ body {
   overflow-x: hidden;
   position: relative;
   text-shadow: 0 0 5px var(--terminal-primary);
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
-h1, h2, h3, h4, h5, h6, button, .font-display {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+.font-display {
   font-family: var(--font-display);
 }
 
@@ -84,7 +124,8 @@ body::before {
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(
+  background:
+    linear-gradient(
       to bottom,
       rgba(18, 16, 16, 0) 50%,
       rgba(0, 0, 0, 0.25) 50%
@@ -96,7 +137,9 @@ body::before {
       rgba(var(--terminal-primary-rgb), 0.03)
     );
   z-index: 50;
-  background-size: 100% 2px, 3px 100%;
+  background-size:
+    100% 2px,
+    3px 100%;
   pointer-events: none;
 }
 
@@ -123,7 +166,11 @@ body::after {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
   pointer-events: none;
   z-index: 55;
 }
@@ -132,33 +179,37 @@ body::after {
 .terminal-box {
   border: 2px solid var(--terminal-primary);
   background-color: rgba(5, 10, 5, 0.9);
-  box-shadow: 0 0 10px var(--terminal-primary);
+  box-shadow:
+    0 0 10px var(--terminal-primary),
+    inset 0 0 10px var(--terminal-primary);
   position: relative;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .terminal-box::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid var(--terminal-primary);
-    border-left: 2px solid var(--terminal-primary);
-    transition: border-color 0.3s ease;
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--terminal-primary);
+  border-left: 2px solid var(--terminal-primary);
+  transition: border-color 0.3s ease;
 }
 
 .terminal-box::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    right: -2px;
-    width: 10px;
-    height: 10px;
-    border-bottom: 2px solid var(--terminal-primary);
-    border-right: 2px solid var(--terminal-primary);
-    transition: border-color 0.3s ease;
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid var(--terminal-primary);
+  border-right: 2px solid var(--terminal-primary);
+  transition: border-color 0.3s ease;
 }
 
 .terminal-button {
@@ -180,32 +231,48 @@ body::after {
 }
 
 .scanline-fixed {
-    width: 100%;
-    height: 100px;
-    z-index: 100;
-    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(var(--terminal-primary-rgb), 0.2) 50%, rgba(0,0,0,0) 100%);
-    opacity: 0.15;
-    position: fixed;
-    top: -100px;
-    left: 0;
-    animation: scan-wiz 4s linear infinite;
-    pointer-events: none;
+  width: 100%;
+  height: 100px;
+  z-index: 100;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(var(--terminal-primary-rgb), 0.2) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  opacity: 0.15;
+  position: fixed;
+  top: -100px;
+  left: 0;
+  animation: scan-wiz 4s linear infinite;
+  pointer-events: none;
 }
 
 @keyframes scan-wiz {
-    0% { transform: translateY(-100px); }
-    100% { transform: translateY(calc(100vh + 100px)); }
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px));
+  }
 }
 
 .terminal-monochrome {
-    filter: sepia(100%) hue-rotate(var(--theme-hue, 50deg)) saturate(500%) contrast(1.2);
+  filter: sepia(100%) hue-rotate(var(--theme-hue, 50deg)) saturate(500%)
+    contrast(1.2);
 }
 
 .theme-amber .terminal-monochrome {
-    --theme-hue: -10deg; /* Amber/Yellow hue */
+  --theme-hue: -10deg; /* Amber/Yellow hue */
 }
 
 /* Legacy support for green-monochrome */
 .green-monochrome {
-    filter: sepia(100%) hue-rotate(50deg) saturate(500%) contrast(1.2);
+  filter: sepia(100%) hue-rotate(50deg) saturate(500%) contrast(1.2);
+}
+
+section.border-b-2.border-terminal-primary {
+  box-shadow:
+    0 4px 5px -4px var(--terminal-primary),
+    inset 0 -4px 5px -4px var(--terminal-primary);
 }

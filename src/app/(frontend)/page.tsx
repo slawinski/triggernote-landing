@@ -15,7 +15,7 @@ import {
 import { Page } from "@/payload-types";
 import { notFound } from "next/navigation";
 
-const renderBlock = (block: Page["layout"][0]) => {
+const renderBlock = (block: Page["layout"][0], isLast: boolean) => {
   switch (block.blockType) {
     case "hero":
       return <Hero block={block} key={block.id} />;
@@ -27,6 +27,10 @@ const renderBlock = (block: Page["layout"][0]) => {
       return <Features block={block} key={block.id} />;
     case "application":
       return <Application block={block} key={block.id} />;
+    case "testimonials":
+      return <Testimonials block={block} key={block.id} />;
+    case "faq":
+      return <FAQ block={block} key={block.id} noBorder={isLast} />;
     default:
       return null;
   }
@@ -74,9 +78,9 @@ export default async function HomePage() {
     <>
       <div className="page bg-terminal-black min-h-screen relative">
         <div className="vignette"></div>
-        {page.layout?.map((block) => renderBlock(block))}
-        <Testimonials />
-        <FAQ />
+        {page.layout?.map((block, index) =>
+          renderBlock(block, index === page.layout.length - 1)
+        )}
       </div>
       <Footer data={footer} />
       <Cookies data={cookieConsent} />

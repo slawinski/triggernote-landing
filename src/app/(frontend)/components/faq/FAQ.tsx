@@ -1,44 +1,30 @@
 import React from "react";
 import { SectionWrapper } from "../ui/SectionWrapper";
+import { Page } from "@/payload-types";
 
-export const FAQ = () => {
-  const faqs = [
-    {
-      question: "IS MY DATA SECURE FROM THE ENCLAVE?",
-      answer:
-        "AFFIRMATIVE. All data is stored locally on your device. No external servers. No cloud transmission. Your inventory remains classified.",
-    },
-    {
-      question: "DOES IT REQUIRE A PIP-BOY CONNECTION?",
-      answer:
-        "NEGATIVE. It operates as a standalone module. However, it functions offline, perfect for deep bunker operations where signal is zero.",
-    },
-    {
-      question: "HOW DO I EXPORT MY MANIFEST?",
-      answer:
-        "Standard CSV export protocol is available. You can backup your data manually to any compatible holotape or drive.",
-    },
-    {
-      question: "IS THERE A SUBSCRIPTION FEE?",
-      answer:
-        "NEGATIVE. One-time acquisition. No recurring cap payments required for core functionality.",
-    },
-  ];
+type FAQBlockProps = Extract<Page["layout"][0], { blockType: "faq" }>;
 
+export const FAQ = ({
+  block,
+  noBorder = false,
+}: {
+  block: FAQBlockProps;
+  noBorder?: boolean;
+}) => {
   return (
-    <SectionWrapper id="faq">
+    <SectionWrapper id="faq" noBorder={noBorder}>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block mb-4 px-2 py-1 border border-terminal-primary text-base text-terminal-primary font-display tracking-tighter uppercase bg-terminal-black/50 backdrop-blur-sm">
-            &gt; HELP_MODULE
+            &gt; {block.tagline}
           </span>
           <h2 className="font-display text-6xl lg:text-8xl text-terminal-primary tracking-tighter uppercase">
-            OVERSEER'S MANUAL
+            {block.heading}
           </h2>
         </div>
 
         <div className="space-y-6">
-          {faqs.map((faq, index) => (
+          {block.faqs?.map((faq, index) => (
             <div
               key={index}
               className="border border-terminal-primary bg-terminal-black/80 p-6 hover:bg-terminal-primary/5 transition-colors"

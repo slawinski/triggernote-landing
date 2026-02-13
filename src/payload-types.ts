@@ -241,6 +241,32 @@ export interface Page {
         blockName?: string | null;
         blockType: 'application';
       }
+    | {
+        heading: string;
+        tagline: string;
+        testimonials: {
+          author: string;
+          role: string;
+          content: string;
+          signal: string;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'testimonials';
+      }
+    | {
+        heading: string;
+        tagline: string;
+        faqs: {
+          question: string;
+          answer: string;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'faq';
+      }
   )[];
   updatedAt: string;
   createdAt: string;
@@ -436,6 +462,38 @@ export interface PagesSelect<T extends boolean = true> {
                           image?: T;
                           link?: T;
                         };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        testimonials?:
+          | T
+          | {
+              heading?: T;
+              tagline?: T;
+              testimonials?:
+                | T
+                | {
+                    author?: T;
+                    role?: T;
+                    content?: T;
+                    signal?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        faq?:
+          | T
+          | {
+              heading?: T;
+              tagline?: T;
+              faqs?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
                     id?: T;
                   };
               id?: T;

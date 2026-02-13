@@ -22,6 +22,52 @@ const copy = {
   application: {
     tagline: 'Get TriggerNote',
   },
+  testimonials: {
+    tagline: 'SIGNAL_INTERCEPTS',
+    heading: 'SURVIVOR LOGS',
+    testimonials: [
+      {
+        author: 'Vault Dweller 101',
+        role: 'Wasteland Survivor',
+        content: 'Found this holotape in a stash. Finally, I can track my 10mm ammo and stimpaks without exposing my location to the Enclave. Best inventory tool in the wasteland.',
+        signal: 'STRONG',
+      },
+      {
+        author: 'Railroad Agent',
+        role: 'Underground Network',
+        content: "No cloud sync means the Institute can't spy on our weapons cache. This is the only secure way to manage inventory. Ad Victoriam... wait, wrong faction.",
+        signal: 'ENCRYPTED',
+      },
+      {
+        author: 'Gunner Commander',
+        role: 'Mercenary Leader',
+        content: "Organizing a platoon's worth of laser rifles used to be a nightmare. Now my squad is efficient. Worth every cap.",
+        signal: 'INTERCEPTED',
+      },
+    ],
+  },
+  faq: {
+    tagline: 'HELP_MODULE',
+    heading: "OVERSEER'S MANUAL",
+    faqs: [
+      {
+        question: 'IS MY DATA SECURE FROM THE ENCLAVE?',
+        answer: 'AFFIRMATIVE. All data is stored locally on your device. No external servers. No cloud transmission. Your inventory remains classified.',
+      },
+      {
+        question: 'DOES IT REQUIRE A PIP-BOY CONNECTION?',
+        answer: 'NEGATIVE. It operates as a standalone module. However, it functions offline, perfect for deep bunker operations where signal is zero.',
+      },
+      {
+        question: 'HOW DO I EXPORT MY MANIFEST?',
+        answer: 'Standard CSV export protocol is available. You can backup your data manually to any compatible holotape or drive.',
+      },
+      {
+        question: 'IS THERE A SUBSCRIPTION FEE?',
+        answer: 'NEGATIVE. One-time acquisition. No recurring cap payments required for core functionality.',
+      },
+    ],
+  },
   header: {
     cta: {
       label: 'Initialize',
@@ -164,8 +210,28 @@ async function seed() {
         if (block.blockType === 'application') {
             return { ...block, tagline: copy.application.tagline }
         }
+        if (block.blockType === 'testimonials') {
+            return { ...block, ...copy.testimonials }
+        }
+        if (block.blockType === 'faq') {
+            return { ...block, ...copy.faq }
+        }
         return block
     })
+
+    // Check if testimonials and faq exist, if not add them
+    if (!layout.find(b => b.blockType === 'testimonials')) {
+        layout.push({
+            blockType: 'testimonials',
+            ...copy.testimonials,
+        })
+    }
+    if (!layout.find(b => b.blockType === 'faq')) {
+        layout.push({
+            blockType: 'faq',
+            ...copy.faq,
+        })
+    }
 
     await payload.update({
         collection: 'pages',

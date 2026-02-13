@@ -4,6 +4,8 @@ import { CollectionConfig } from "payload";
 import { AboutBlock } from "@/blocks/AboutBlock";
 import { FeaturesBlock } from "@/blocks/FeaturesBlock";
 import { ApplicationBlock } from "@/blocks/ApplicationBlock";
+import { TestimonialsBlock } from "@/blocks/TestimonialsBlock";
+import { FAQBlock } from "@/blocks/FAQBlock";
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -31,6 +33,8 @@ export const Pages: CollectionConfig = {
         AboutBlock,
         FeaturesBlock,
         ApplicationBlock,
+        TestimonialsBlock,
+        FAQBlock,
       ],
     },
   ],

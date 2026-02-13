@@ -1,7 +1,7 @@
 "use client";
 
 import { Page } from "@/payload-types";
-import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { useDetectOutsideClick } from "../../hooks/use-detect-outside-click";
 import { TerminalButton } from "../ui/TerminalButton";
@@ -29,11 +29,11 @@ export const Header = ({ block }: { block: Header }) => {
           <div className="w-auto p-2">
             <div className="flex flex-wrap items-center">
               <div className="w-auto">
-                <a className="relative z-10 inline-block" href="/">
+                <Link className="relative z-10 inline-block" href="/">
                   <div className="text-4xl font-bold tracking-wider font-display text-terminal-primary">
                     &gt; TRIGGERNOTE_
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@ export const Header = ({ block }: { block: Header }) => {
                       key={idx}
                       className="mr-12 text-terminal-primary text-2xl font-medium tracking-tighter hover:text-terminal-primary/80 font-display"
                     >
-                      <a href={item.link}>[{item.label}]</a>
+                      <Link href={item.link}>[{item.label}]</Link>
                     </li>
                   ))}
                 </ul>
@@ -138,13 +138,13 @@ export const Header = ({ block }: { block: Header }) => {
               <ul className="space-y-6">
                 {navigation.map((item, idx) => (
                   <li key={idx}>
-                    <a 
+                    <Link 
                       href={item.link} 
                       className="block text-3xl font-display text-terminal-primary hover:bg-terminal-primary hover:text-terminal-black px-2 py-1 transition-colors"
                       onClick={() => setIsOpen(false)}
                     >
                       &gt; {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
