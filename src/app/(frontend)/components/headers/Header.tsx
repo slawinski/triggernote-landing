@@ -144,7 +144,7 @@ export const Header = ({ block }: { block: Header }) => {
                 <ThemeToggle />
               </div>
               <div className="text-center text-terminal-primary/50 font-mono text-sm">
-                VAULT-TEC PROTOCOL v1.0.2
+                ARMORY SECURE PROTOCOL v1.0.2
               </div>
             </div>
           </nav>

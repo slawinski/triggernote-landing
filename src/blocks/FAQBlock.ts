@@ -7,7 +7,7 @@ export const FAQBlock: Block = {
       name: "heading",
       type: "text",
       required: true,
-      defaultValue: "OVERSEER'S MANUAL",
+      defaultValue: "ARMORY HANDBOOK",
     },
     {
       name: "tagline",

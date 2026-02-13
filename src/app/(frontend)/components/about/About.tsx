@@ -10,7 +10,7 @@ export const About = ({ block }: { block: About }) => {
     <section id="about" className="relative pt-20 pb-24 lg:pb-32 overflow-hidden border-b-2 border-terminal-primary">
       <div className="container px-4 mx-auto">
         <div className="relative text-center md:max-w-4xl mx-auto">
-          <TerminalCard className="mb-12 text-left" title="OVERSEER_LOG_77">
+          <TerminalCard className="mb-12 text-left" title="SYSTEM_ARCHIVE_01">
               <p className="text-xl lg:text-3xl text-terminal-primary tracking-tight leading-relaxed font-body">
                 <span className="opacity-50 mr-2 font-display text-xl">&gt; INFO:</span>
                 {block.content}

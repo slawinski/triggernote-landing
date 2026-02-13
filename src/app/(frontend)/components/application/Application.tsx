@@ -11,7 +11,7 @@ export const Application = ({ block }: { block: Application }) => {
       <div className="container px-4 mx-auto">
         <div className="flex flex-wrap items-center -m-8">
           <div className="w-full md:w-1/2 p-8">
-            <TerminalCard className="max-w-max mx-auto p-4" title="PIP-BOY 3000 MARK IV">
+            <TerminalCard className="max-w-max mx-auto p-4" title="ARMORY INTERFACE v4.0">
               <div className="relative">
                 <Image
                   className="relative mx-auto opacity-90 terminal-monochrome"
