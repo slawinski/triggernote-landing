@@ -36,6 +36,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         />
       </head>
       <body className="relative min-h-screen">
+        <div className="scanline-fixed"></div>
         <ThemeProvider>
           {/* SVG Filter for perfect monochrome */}
           <svg style={{ visibility: "hidden", position: "absolute", width: 0, height: 0 }}>
