@@ -53,7 +53,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     // Cleanup class after animation completes
     setTimeout(() => {
       document.documentElement.classList.remove('degaussing');
-    }, 400);
+    }, 800);
   };
 
   return (

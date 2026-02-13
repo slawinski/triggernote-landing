@@ -40,12 +40,16 @@ export const ThemeToggle: React.FC = () => {
     if (isDegaussing) return;
     
     setIsDegaussing(true);
-    playDegaussSound();
     toggleTheme();
+    
+    // Align click sound with the visual peak (3% of 0.8s is approx 24ms)
+    setTimeout(() => {
+      playDegaussSound();
+    }, 24);
     
     setTimeout(() => {
       setIsDegaussing(false);
-    }, 400);
+    }, 800);
   };
 
   return (
