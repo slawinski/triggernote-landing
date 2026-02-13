@@ -7,13 +7,13 @@ export const FAQBlock: Block = {
       name: "heading",
       type: "text",
       required: true,
-      defaultValue: "ARMORY HANDBOOK",
+      defaultValue: "FAQ",
     },
     {
       name: "tagline",
       type: "text",
       required: true,
-      defaultValue: "HELP_MODULE",
+      defaultValue: "SUPPORT_MODULE",
     },
     {
       name: "faqs",

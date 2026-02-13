@@ -7,13 +7,13 @@ export const TestimonialsBlock: Block = {
       name: "heading",
       type: "text",
       required: true,
-      defaultValue: "SURVIVOR LOGS",
+      defaultValue: "USER LOGS",
     },
     {
       name: "tagline",
       type: "text",
       required: true,
-      defaultValue: "SIGNAL_INTERCEPTS",
+      defaultValue: "USER_REPORTS",
     },
     {
       name: "testimonials",

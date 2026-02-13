@@ -24,7 +24,7 @@ const copy = {
   },
   testimonials: {
     tagline: 'USER_REPORTS',
-    heading: 'COMMUNITY FEEDBACK',
+    heading: 'USER LOGS',
     testimonials: [
       {
         author: 'John D.',
@@ -48,7 +48,7 @@ const copy = {
   },
   faq: {
     tagline: 'SUPPORT_MODULE',
-    heading: "ARMORY HANDBOOK",
+    heading: "FAQ",
     faqs: [
       {
         question: 'IS MY DATA SECURE FROM THIRD PARTIES?',

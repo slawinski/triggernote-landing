@@ -20,14 +20,6 @@ export const Features = ({ block }: { block: Features }) => {
           {block.cards.map((card) => (
             <div key={card.id} className="w-full md:w-1/3 p-4">
               <TerminalCard className="h-full">
-                {card.link && (
-                  <a
-                    className="terminal-badge mb-6 transition-colors hover:bg-terminal-primary hover:text-terminal-black"
-                    href={card.link}
-                  >
-                    [ ACCESS ]
-                  </a>
-                )}
                 <h3 className="mb-6 text-4xl text-terminal-primary tracking-tighter uppercase font-display">
                   {card.label}
                 </h3>
