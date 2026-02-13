@@ -79,7 +79,7 @@ export const ThemeToggle: React.FC = () => {
       settle.frequency.setValueAtTime(1200, audioCtx.currentTime);
       settle.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.005);
 
-      settleGain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+      settleGain.gain.setValueAtTime(0.15, audioCtx.currentTime);
       settleGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.005);
 
       settle.connect(settleGain);
@@ -107,7 +107,7 @@ export const ThemeToggle: React.FC = () => {
     setTimeout(() => {
       setIsDegaussing(false);
       playEndSound();
-    }, 800);
+    }, 1600);
   };
 
   return (
