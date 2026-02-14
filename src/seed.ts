@@ -14,9 +14,21 @@ const copy = {
   features: {
     tagline: 'TriggerNote Features',
     cards: [
-        { link: '/features/speed' },
-        { link: '/features/security' },
-        { link: '/features/support' }
+        { 
+          link: '/features/speed',
+          label: 'RAPID INDEXING',
+          caption: 'Instant access to your entire arsenal. Optimized for quick retrieval and status checks in the field.'
+        },
+        { 
+          link: '/features/security',
+          label: 'ENCRYPTED STORAGE',
+          caption: 'AES-256 encryption ensures your inventory data remains private and secure. Offline-first architecture.'
+        },
+        { 
+          link: '/features/support',
+          label: 'MAINTENANCE LOGS',
+          caption: 'Detailed tracking of cleaning, repairs, and modifications. Never miss a maintenance interval again.'
+        }
     ]
   },
   application: {
@@ -201,10 +213,15 @@ async function seed() {
             return { ...block, cta: copy.header.cta }
         }
         if (block.blockType === 'features') {
-            const newCards = block.cards.map((card, i) => ({
-                ...card,
-                link: copy.features.cards[i % copy.features.cards.length].link
-            }))
+            const newCards = block.cards.map((card, i) => {
+                const copyCard = copy.features.cards[i % copy.features.cards.length];
+                return {
+                    ...card,
+                    label: copyCard.label,
+                    caption: copyCard.caption,
+                    link: copyCard.link
+                }
+            })
             return { ...block, tagline: copy.features.tagline, cards: newCards }
         }
         if (block.blockType === 'application') {

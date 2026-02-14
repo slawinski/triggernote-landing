@@ -40,16 +40,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation }) => {
   return (
     <>
       <button
-        className="relative z-10 flex items-center gap-2 text-terminal-primary hover:text-terminal-primary/80 transition-colors group"
+        className="relative z-10 flex flex-col gap-1.5 p-2 text-terminal-primary hover:text-terminal-primary/80 transition-all group"
         aria-label="Open menu"
         onClick={() => setIsOpen(true)}
       >
-        <span className="text-xl font-display tracking-widest">[ CTRL ]</span>
-        <div className="flex flex-col gap-1">
-          <div className="w-6 h-[2px] bg-current transition-all group-hover:w-8" />
-          <div className="w-4 h-[2px] bg-current transition-all group-hover:w-6" />
-          <div className="w-8 h-[2px] bg-current transition-all group-hover:w-4" />
-        </div>
+        <div className="w-8 h-[2px] bg-current shadow-[0_0_8px_var(--terminal-primary)] transition-all" />
+        <div className="w-8 h-[2px] bg-current shadow-[0_0_8px_var(--terminal-primary)] transition-all" />
+        <div className="w-8 h-[2px] bg-current shadow-[0_0_8px_var(--terminal-primary)] transition-all" />
       </button>
 
       {isOpen && (

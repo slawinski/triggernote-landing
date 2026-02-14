@@ -29,10 +29,7 @@ export const Testimonials = ({ block }: { block: TestimonialsBlockProps }) => {
           >
             <div className="flex flex-col h-full">
               <div className="mb-6 relative">
-                <span className="text-7xl text-terminal-primary/20 absolute -top-4 -left-2 font-display">
-                  &quot;
-                </span>
-                <p className="text-terminal-primary text-lg font-body italic relative z-10 pl-4">
+                <p className="text-terminal-primary text-lg font-body relative z-10">
                   {t.content}
                 </p>
               </div>
