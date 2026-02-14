@@ -78,8 +78,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation }) => {
                 {navigation.map((item, idx) => (
                   <li 
                     key={idx} 
-                    className="opacity-0 animate-[fadeIn_0.3s_ease-out_forwards]"
-                    style={{ animationDelay: `${idx * 0.1}s` }}
+                    className="opacity-100"
                   >
                     <Link 
                       href={item.link} 
