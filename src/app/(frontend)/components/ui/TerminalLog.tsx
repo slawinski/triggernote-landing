@@ -403,7 +403,7 @@ export const TerminalLog: React.FC<{
 
   return (
     <div
-      className={`font-mono overflow-hidden flex flex-col justify-end ${className}`}
+      className={`font-mono overflow-hidden hidden md:flex flex-col justify-end ${className}`}
       style={{ height: `${itemsToShow * 1.2}rem`, lineHeight: "1.2rem" }}
     >
       <div className="flex flex-col">

@@ -33,7 +33,7 @@ export const Hero = ({ block }: { block: Hero }) => {
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-1/2 lg:w-5/12 p-8">
+            <div className="hidden md:block w-full md:w-1/2 lg:w-5/12 p-8">
               <div className="relative md:mr-0">
                 <div className="relative z-10 w-full h-[500px] overflow-hidden flex flex-col items-start justify-start">
                   <TerminalLog itemsToShow={40} className="text-xs md:text-sm w-full" />
