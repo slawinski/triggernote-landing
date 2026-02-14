@@ -59,19 +59,17 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation }) => {
           <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(var(--terminal-primary-rgb),0.03),rgba(0,0,0,0.02),rgba(var(--terminal-primary-rgb),0.03))] z-0 pointer-events-none bg-[length:100%_2px,3px_100%]" />
           
           <div className="container h-full mx-auto px-6 py-8 flex flex-col relative z-10">
-            <div className="flex items-center justify-between mb-12 border-b-2 border-terminal-primary pb-6">
+            <div className="flex items-center justify-between mb-12">
               <div className="flex flex-col">
                 <span className="text-sm font-mono text-terminal-primary/60 tracking-[0.2em] mb-1">SECURE_PROTOCOL_INIT</span>
                 <span className="text-3xl font-display text-terminal-primary tracking-tighter">&gt; SYSTEM ACCESS_</span>
               </div>
               <button
-                className="group relative flex items-center justify-center w-12 h-12 border-2 border-terminal-primary text-terminal-primary hover:bg-terminal-primary hover:text-terminal-black transition-all"
+                className="group text-terminal-primary hover:text-terminal-primary/80 transition-all p-2"
                 aria-label="Close menu"
                 onClick={() => setIsOpen(false)}
               >
-                <span className="text-2xl font-display group-hover:scale-110 transition-transform">X</span>
-                <div className="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-terminal-primary group-hover:border-terminal-black" />
-                <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-terminal-primary group-hover:border-terminal-black" />
+                <span className="text-2xl font-display group-hover:scale-110 transition-transform tracking-widest">[ X ]</span>
               </button>
             </div>
             
@@ -101,23 +99,39 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ navigation }) => {
               </ul>
             </nav>
 
-            <div className="mt-auto pt-8 border-t-2 border-terminal-primary/30 grid grid-cols-2 items-end">
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-4">
-                  <span className="text-terminal-primary/40 font-mono text-xs uppercase tracking-widest">Theme Selection:</span>
-                  <ThemeToggle />
+            <div className="mt-auto pt-8 border-t-2 border-terminal-primary/20 flex flex-col gap-8">
+              <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-terminal-primary/40 font-mono text-[10px] uppercase tracking-[0.3em]">System_Config:</span>
+                    <div className="h-[1px] flex-1 mx-4 bg-terminal-primary/10" />
+                  </div>
+                  <div className="flex items-center justify-between bg-terminal-primary/5 p-4 border border-terminal-primary/10">
+                    <div className="flex flex-col">
+                      <span className="text-terminal-primary font-mono text-xs uppercase tracking-widest mb-1">Visual_Interface</span>
+                      <span className="text-terminal-primary/40 font-mono text-[9px] uppercase tracking-wider">Select primary phosphor hue</span>
+                    </div>
+                    <ThemeToggle />
+                  </div>
                 </div>
-                <div className="text-terminal-primary/40 font-mono text-xs uppercase tracking-[0.3em]">
-                  Boot_Loader: <span className="text-terminal-primary/80">v1.0.2</span>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-terminal-primary/5 p-4 border border-terminal-primary/10 flex flex-col gap-2">
+                    <span className="text-terminal-primary/40 font-mono text-[10px] uppercase tracking-widest">Protocol</span>
+                    <span className="text-terminal-primary font-mono text-xs">V1.0.2_STABLE</span>
+                  </div>
+                  <div className="bg-terminal-primary/5 p-4 border border-terminal-primary/10 flex flex-col gap-2 text-right">
+                    <span className="text-terminal-primary/40 font-mono text-[10px] uppercase tracking-widest">Connection</span>
+                    <span className="text-terminal-primary font-mono text-xs animate-pulse">ENCRYPTED</span>
+                  </div>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="text-terminal-primary/40 font-mono text-xs uppercase tracking-[0.3em]">
-                  Status: <span className="text-terminal-primary/80 animate-pulse">SECURE</span>
-                </div>
-                <div className="text-terminal-primary/40 font-mono text-xs uppercase tracking-[0.3em]">
-                  Local_Time: <span className="text-terminal-primary/80">{currentTime}</span>
-                </div>
+
+              <div className="flex items-center justify-between font-mono text-[10px] text-terminal-primary/30 uppercase tracking-[0.4em]">
+                <span>&lt; SYSLOG_LOCAL &gt;</span>
+                <span className="flex items-center gap-2">
+                  TIMESTAMP: <span className="text-terminal-primary/60">{currentTime}</span>
+                </span>
               </div>
             </div>
           </div>
