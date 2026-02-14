@@ -4,11 +4,11 @@ import { Page } from "@/payload-types";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useDetectOutsideClick } from "../../hooks/use-detect-outside-click";
-import { TerminalButton } from "../ui/TerminalButton";
 import { ThemeToggle } from "../ui/ThemeToggle";
 
 type Header = Extract<Page["layout"][0], { blockType: "header" }>;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Header = ({ block }: { block: Header }) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);

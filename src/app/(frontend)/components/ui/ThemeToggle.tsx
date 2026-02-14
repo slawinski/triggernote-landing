@@ -10,7 +10,7 @@ export const ThemeToggle: React.FC = () => {
   const playDegaussSound = () => {
     try {
       const AudioContextClass =
-        window.AudioContext || (window as any).webkitAudioContext;
+        window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       const audioCtx = new AudioContextClass();
 
       // 1. The "Mechanical Snap" (Extremely sharp, short transient)
@@ -60,15 +60,15 @@ export const ThemeToggle: React.FC = () => {
       ping.stop(audioCtx.currentTime + 0.003);
 
       setTimeout(() => audioCtx.close(), 50);
-    } catch (e) {
-      console.error("Audio not supported", e);
+    } catch (_e) {
+      console.error("Audio not supported", _e);
     }
   };
 
   const playEndSound = () => {
     try {
       const AudioContextClass =
-        window.AudioContext || (window as any).webkitAudioContext;
+        window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       const audioCtx = new AudioContextClass();
 
       // Sharp, gentle "settle" click
@@ -89,7 +89,7 @@ export const ThemeToggle: React.FC = () => {
       settle.stop(audioCtx.currentTime + 0.005);
 
       setTimeout(() => audioCtx.close(), 50);
-    } catch (e) {
+    } catch {
       // Silent fail
     }
   };
