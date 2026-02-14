@@ -545,19 +545,6 @@ export interface Footer {
   subscription: {
     heading: string;
   };
-  navGroups?:
-    | {
-        label: string;
-        links?:
-          | {
-              label: string;
-              link: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
   socials?:
     | {
         platform: string;
@@ -593,19 +580,6 @@ export interface FooterSelect<T extends boolean = true> {
     | T
     | {
         heading?: T;
-      };
-  navGroups?:
-    | T
-    | {
-        label?: T;
-        links?:
-          | T
-          | {
-              label?: T;
-              link?: T;
-              id?: T;
-            };
-        id?: T;
       };
   socials?:
     | T

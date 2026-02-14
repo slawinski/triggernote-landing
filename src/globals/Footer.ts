@@ -17,21 +17,6 @@ export const Footer: GlobalConfig = {
       ],
     },
     {
-      name: "navGroups",
-      type: "array",
-      fields: [
-        { name: "label", type: "text", required: true },
-        {
-          name: "links",
-          type: "array",
-          fields: [
-            { name: "label", type: "text", required: true },
-            { name: "link", type: "text", required: true },
-          ],
-        },
-      ],
-    },
-    {
         name: "socials",
         type: "array",
         fields: [

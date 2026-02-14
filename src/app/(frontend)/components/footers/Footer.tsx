@@ -6,94 +6,88 @@ export const Footer = ({ data }: { data: FooterType | null }) => {
   if (!data) return null;
   return (
     <React.Fragment>
-      <section className="py-24 overflow-hidden border-t-2 border-terminal-primary relative">
+      <section className="py-24 overflow-hidden border-t-2 border-terminal-primary bg-terminal-black relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-terminal-primary/50 to-transparent opacity-50"></div>
+        
         <div className="container px-4 mx-auto">
-          <Link className="relative z-10 inline-block mb-20" href="/">
-            <div className="text-4xl font-bold tracking-wider text-terminal-primary font-display">
-              &gt; TRIGGERNOTE_
-            </div>
-          </Link>
-          <div className="flex flex-wrap items-end -m-8 mb-20">
-            <div className="w-full md:w-1/2 p-8">
-              <div className="md:max-w-md">
-                <h3 className="mb-10 text-4xl text-terminal-primary uppercase tracking-tighter font-display">
-                  {data.subscription?.heading || ""}
-                </h3>
-                <div className="relative border-2 border-terminal-primary focus-within:shadow-[0_0_15px_rgba(var(--terminal-primary-rgb),0.5)] transition-shadow">
-                  <input
-                    className="block w-full py-5 pl-8 pr-32 text-lg text-terminal-primary placeholder-terminal-primary/50 bg-terminal-black font-body focus:outline-none"
-                    type="text"
-                    placeholder="ENTER_EMAIL_ADDRESS"
-                    style={{ height: 72 }}
-                  />
-                  <a
-                    className="absolute right-0 top-0 flex items-center justify-center px-8 h-full bg-terminal-primary hover:bg-terminal-black text-terminal-black hover:text-terminal-primary border-l-2 border-terminal-primary transition-colors group font-display font-bold text-2xl uppercase tracking-wider"
-                    href="#"
-                  >
-                    [ SUBMIT ]
-                  </a>
-                </div>
+          <div className="flex flex-col items-center text-center">
+            {/* Newsletter Section */}
+            <div className="w-full max-w-2xl mb-24">
+              <span className="terminal-badge mb-6 inline-block">
+                &gt; SUBSCRIPTION_MODULE
+              </span>
+              <h3 className="mb-10 text-5xl lg:text-7xl text-terminal-primary uppercase tracking-tighter font-display leading-none">
+                {data.subscription?.heading || "Join the Protocol"}
+              </h3>
+              <div className="relative border-2 border-terminal-primary focus-within:shadow-[0_0_20px_rgba(var(--terminal-primary-rgb),0.4)] transition-all">
+                <input
+                  className="block w-full py-6 pl-8 pr-40 text-xl text-terminal-primary placeholder-terminal-primary/30 bg-terminal-black font-body focus:outline-none"
+                  type="email"
+                  placeholder="USER@PROTOCOL.TERMINAL"
+                />
+                <button
+                  className="absolute right-0 top-0 flex items-center justify-center px-10 h-full bg-terminal-primary hover:bg-terminal-black text-terminal-black hover:text-terminal-primary border-l-2 border-terminal-primary transition-all group font-display font-bold text-2xl uppercase tracking-wider"
+                >
+                  [ ENROLL ]
+                </button>
               </div>
-            </div>
-            <div className="w-full md:w-1/2 p-8">
-              <div className="flex flex-wrap md:justify-end -m-8 lg:-m-20">
-                {data.navGroups?.map((group) => (
-                  <div key={group.id} className="w-full md:w-auto p-8 lg:p-20">
-                    <h3 className="mb-6 text-2xl text-terminal-primary font-bold uppercase underline underline-offset-4 decoration-2 font-display">
-                      {group.label}
-                    </h3>
-                    <ul>
-                      {group.links?.map((link) => (
-                        <li key={link.id} className="mb-2.5">
-                          <a
-                            className="inline-block text-lg font-medium text-terminal-primary hover:underline transition duration-300 opacity-80 hover:opacity-100 font-body"
-                            href={link.link}
-                          >
-                            &gt; {link.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-wrap justify-between -m-4 pt-8 border-t border-terminal-primary/30">
-            <div className="w-auto p-4">
-              <p className="text-terminal-primary opacity-60 font-medium font-body">
-                {data.copyright || ""}
+              <p className="mt-4 text-terminal-primary/40 font-mono text-xs uppercase tracking-[0.2em]">
+                Secure transmission guaranteed via AES-256
               </p>
             </div>
-            <div className="w-auto p-4">
-              <ul className="flex flex-wrap items-center -m-2 sm:-m-5">
+
+            {/* Middle Section: Logo and Brand */}
+            <div className="mb-16">
+              <Link className="relative z-10 inline-block group" href="/">
+                <div className="text-5xl lg:text-6xl font-bold tracking-[0.2em] text-terminal-primary font-display group-hover:shadow-[0_0_20px_rgba(var(--terminal-primary-rgb),0.5)] transition-shadow p-4 border-2 border-transparent group-hover:border-terminal-primary">
+                  &gt; TRIGGERNOTE_
+                </div>
+              </Link>
+            </div>
+
+            {/* Socials */}
+            <div className="mb-16">
+              <ul className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
                 {data.socials?.map((social) => (
-                  <li key={social.id} className="p-2 sm:p-5">
+                  <li key={social.id}>
                     <a
-                      className="inline-block hover:opacity-80 transition-opacity"
+                      className="group flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"
                       href={social.link}
                     >
                       {social.icon &&
                       typeof social.icon !== "string" &&
                       social.icon.url ? (
                         <div
-                          className="terminal-icon-mask"
+                          className="terminal-icon-mask group-hover:shadow-[0_0_10px_var(--terminal-primary)] transition-all"
                           style={{
-                            width: 25,
-                            height: 25,
+                            width: 32,
+                            height: 32,
                             maskImage: `url(${social.icon.url})`,
                             WebkitMaskImage: `url(${social.icon.url})`,
                           }}
                           aria-label={social.platform}
                         />
                       ) : (
-                        <div className="w-[25px] h-[25px] bg-terminal-primary animate-pulse opacity-50" />
+                        <div className="w-[32px] h-[32px] bg-terminal-primary animate-pulse opacity-50" />
                       )}
+                      <span className="font-mono text-[10px] text-terminal-primary/40 group-hover:text-terminal-primary transition-colors tracking-widest uppercase">
+                        {social.platform}
+                      </span>
                     </a>
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Footer Bottom */}
+            <div className="w-full pt-8 border-t border-terminal-primary/10 flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-terminal-primary/40 font-mono text-[10px] uppercase tracking-[0.3em]">
+                {data.copyright || "© 2026 TriggerNote"}
+              </p>
+              <div className="flex gap-8 font-mono text-[10px] text-terminal-primary/40 uppercase tracking-[0.3em]">
+                <Link href="/privacy" className="hover:text-terminal-primary transition-colors">Privacy_Protocol</Link>
+                <Link href="/terms" className="hover:text-terminal-primary transition-colors">Terms_of_Service</Link>
+              </div>
             </div>
           </div>
         </div>

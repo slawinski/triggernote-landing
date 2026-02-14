@@ -90,26 +90,6 @@ const copy = {
     subscription: {
       heading: 'Subscribe to TriggerNote updates.',
     },
-    navGroups: [
-      {
-        label: 'Product',
-        links: [
-          { label: 'Features', link: '/features' },
-          { label: 'Pricing', link: '/pricing' },
-          { label: 'Changelog', link: '/changelog' },
-          { label: 'Docs', link: '/docs' },
-        ],
-      },
-      {
-        label: 'Company',
-        links: [
-          { label: 'About Us', link: '/about' },
-          { label: 'Careers', link: '/careers' },
-          { label: 'Blog', link: '/blog' },
-          { label: 'Contact', link: '/contact' },
-        ],
-      },
-    ],
     copyright: '© 2026 TriggerNote. All rights reserved.',
   },
   cookieConsent: {
@@ -180,7 +160,6 @@ async function seed() {
         data: {
           logo: logo.id,
           subscription: copy.footer.subscription,
-          navGroups: copy.footer.navGroups,
           socials: socials,
           copyright: copy.footer.copyright,
         },
