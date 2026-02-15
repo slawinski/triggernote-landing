@@ -25,7 +25,7 @@ export const Testimonials = ({ block }: { block: TestimonialsBlockProps }) => {
           <TerminalCard
             key={index}
             className="h-full"
-            title={`SIGNAL: ${t.signal}`}
+            title={`ENTRY_0${index + 1}`}
           >
             <div className="flex flex-col h-full">
               <div className="mb-6 relative">

@@ -35,12 +35,6 @@ export const TestimonialsBlock: Block = {
           type: "textarea",
           required: true,
         },
-        {
-          name: "signal",
-          type: "text",
-          required: true,
-          defaultValue: "STRONG",
-        },
       ],
     },
   ],

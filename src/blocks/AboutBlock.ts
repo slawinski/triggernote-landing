@@ -4,27 +4,21 @@ export const AboutBlock: Block = {
   slug: "about",
   fields: [
     {
-      name: "content",
+      name: "tagline",
       type: "text",
       required: true,
+      defaultValue: "SYSTEM_MANIFESTO",
     },
     {
-      name: "more-button",
-      label: "Read More Button",
-      type: "group",
+      name: "heading",
+      type: "text",
       required: true,
-      fields: [
-        {
-          name: "caption",
-          type: "text",
-          required: true,
-        },
-        {
-          name: "link",
-          type: "text",
-          required: true,
-        },
-      ],
+      defaultValue: "OUR MISSION",
+    },
+    {
+      name: "content",
+      type: "textarea",
+      required: true,
     },
   ],
 };

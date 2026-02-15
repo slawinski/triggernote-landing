@@ -202,11 +202,9 @@ export interface Page {
         blockType: 'header';
       }
     | {
+        tagline: string;
+        heading: string;
         content: string;
-        'more-button': {
-          caption: string;
-          link: string;
-        };
         id?: string | null;
         blockName?: string | null;
         blockType: 'about';
@@ -248,7 +246,6 @@ export interface Page {
           author: string;
           role: string;
           content: string;
-          signal: string;
           id?: string | null;
         }[];
         id?: string | null;
@@ -421,13 +418,9 @@ export interface PagesSelect<T extends boolean = true> {
         about?:
           | T
           | {
+              tagline?: T;
+              heading?: T;
               content?: T;
-              'more-button'?:
-                | T
-                | {
-                    caption?: T;
-                    link?: T;
-                  };
               id?: T;
               blockName?: T;
             };
@@ -478,7 +471,6 @@ export interface PagesSelect<T extends boolean = true> {
                     author?: T;
                     role?: T;
                     content?: T;
-                    signal?: T;
                     id?: T;
                   };
               id?: T;
