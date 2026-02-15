@@ -226,6 +226,7 @@ export interface Page {
         tagline: string;
         heading: string;
         caption: string;
+        image: string | Media;
         downloads?:
           | {
               'store-links': {
@@ -446,6 +447,7 @@ export interface PagesSelect<T extends boolean = true> {
               tagline?: T;
               heading?: T;
               caption?: T;
+              image?: T;
               downloads?:
                 | T
                 | {

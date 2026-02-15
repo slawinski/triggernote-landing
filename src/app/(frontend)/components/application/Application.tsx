@@ -7,19 +7,35 @@ type Application = Extract<Page["layout"][0], { blockType: "application" }>;
 
 export const Application = ({ block }: { block: Application }) => {
   return (
-    <section id="download" className="relative py-16 overflow-hidden border-b-2 border-terminal-primary">
+    <section
+      id="download"
+      className="relative py-16 overflow-hidden border-b-2 border-terminal-primary"
+    >
       <div className="container px-4 mx-auto">
         <div className="flex flex-wrap items-center -m-8">
           <div className="w-full md:w-1/2 p-8">
-            <TerminalCard className="max-w-max mx-auto p-4" title="ARMORY INTERFACE v4.0">
+            <TerminalCard
+              className="max-w-max mx-auto p-4"
+              title="ARMORY INTERFACE v4.0"
+            >
               <div className="relative">
-                <Image
-                  className="relative mx-auto opacity-90 terminal-monochrome"
-                  src="/nightsable-assets/images/application-section/phone.png"
-                  alt="Phone"
-                  width={400}
-                  height={400}
-                />
+                {block.image &&
+                typeof block.image !== "string" &&
+                block.image.url ? (
+                  <Image
+                    className="relative mx-auto opacity-90 terminal-monochrome"
+                    src={block.image.url}
+                    alt={block.image.alt || "Phone"}
+                    width={400}
+                    height={400}
+                  />
+                ) : (
+                  <div className="w-[400px] h-[400px] bg-terminal-primary/10 flex items-center justify-center border border-terminal-primary/20">
+                    <span className="text-terminal-primary/40 font-mono">
+                      IMAGE_NOT_LOADED
+                    </span>
+                  </div>
+                )}
                 {/* CRT Mesh Overlay */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(var(--terminal-primary-rgb),0.06),rgba(0,0,0,0.02),rgba(var(--terminal-primary-rgb),0.06))] z-10 pointer-events-none bg-[length:100%_2px,3px_100%]"></div>
               </div>

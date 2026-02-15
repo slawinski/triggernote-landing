@@ -16,6 +16,12 @@ export const ApplicationBlock: Block = {
       required: true,
     },
     {
+      name: "image",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+    },
+    {
       name: "downloads",
       type: "array",
       fields: [

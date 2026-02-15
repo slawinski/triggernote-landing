@@ -169,20 +169,24 @@ async function seed() {
   }
 
   const logo = await uploadIfNotExists(
-    "nightsable-assets/logos/logo.svg",
-    "TriggerNote Logo"
+    "logo.svg",
+    "TriggerNote Logo",
+    path.join(rootDir, "media")
   );
   const twitterIcon = await uploadIfNotExists(
-    "nightsable-assets/images/footers/twitter-white.svg",
-    "Twitter"
+    "twitter-white.svg",
+    "Twitter",
+    path.join(rootDir, "media")
   );
   const linkedinIcon = await uploadIfNotExists(
-    "nightsable-assets/images/footers/linkedin-white.svg",
-    "LinkedIn"
+    "linkedin-white.svg",
+    "LinkedIn",
+    path.join(rootDir, "media")
   );
   const facebookIcon = await uploadIfNotExists(
-    "nightsable-assets/images/footers/fb-white.svg",
-    "Facebook"
+    "fb-white.svg",
+    "Facebook",
+    path.join(rootDir, "media")
   );
   const appStoreIcon = await uploadIfNotExists(
     "app-store-black.png",
@@ -192,6 +196,11 @@ async function seed() {
   const googlePlayIcon = await uploadIfNotExists(
     "google-play-black.png",
     "Google Play",
+    path.join(rootDir, "media")
+  );
+  const phoneImage = await uploadIfNotExists(
+    "phone.png",
+    "Phone Interface",
     path.join(rootDir, "media")
   );
 
@@ -283,7 +292,12 @@ async function seed() {
             },
           },
         ];
-        return { ...block, tagline: copy.application.tagline, downloads };
+        return {
+          ...block,
+          tagline: copy.application.tagline,
+          image: phoneImage?.id,
+          downloads,
+        };
       }
       if (block.blockType === "testimonials") {
         return { ...block, ...copy.testimonials };
