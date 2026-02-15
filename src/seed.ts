@@ -42,6 +42,10 @@ const copy = {
   },
   application: {
     tagline: "Get TriggerNote",
+    downloads: [
+      { link: "https://apps.apple.com" },
+      { link: "https://play.google.com" },
+    ],
   },
   testimonials: {
     tagline: "SIGNAL: DECODED",
@@ -119,9 +123,14 @@ async function seed() {
 
   // 1. Upload Media
   const publicDir = path.resolve(dirname, "../public");
+  const rootDir = path.resolve(dirname, "..");
 
-  async function uploadIfNotExists(relativePath: string, alt: string) {
-    const filePath = path.join(publicDir, relativePath);
+  async function uploadIfNotExists(
+    relativePath: string,
+    alt: string,
+    baseDir: string = publicDir
+  ) {
+    const filePath = path.join(baseDir, relativePath);
     const fileName = path.basename(filePath);
 
     // Check if exists
@@ -142,6 +151,8 @@ async function seed() {
     }
 
     const fileBuffer = fs.readFileSync(filePath);
+    const extension = path.extname(fileName).toLowerCase();
+    const mimetype = extension === ".svg" ? "image/svg+xml" : "image/png";
 
     return await payload.create({
       collection: "media",
@@ -151,7 +162,7 @@ async function seed() {
       file: {
         data: fileBuffer,
         name: fileName,
-        mimetype: "image/svg+xml", // Assuming SVGs for now based on list
+        mimetype: mimetype,
         size: fileBuffer.length,
       },
     });
@@ -172,6 +183,16 @@ async function seed() {
   const facebookIcon = await uploadIfNotExists(
     "nightsable-assets/images/footers/fb-white.svg",
     "Facebook"
+  );
+  const appStoreIcon = await uploadIfNotExists(
+    "app-store-black.png",
+    "App Store",
+    path.join(rootDir, "media")
+  );
+  const googlePlayIcon = await uploadIfNotExists(
+    "google-play-black.png",
+    "Google Play",
+    path.join(rootDir, "media")
   );
 
   // 2. Update Footer Global
@@ -248,7 +269,21 @@ async function seed() {
         return { ...block, tagline: copy.features.tagline, cards: newCards };
       }
       if (block.blockType === "application") {
-        return { ...block, tagline: copy.application.tagline };
+        const downloads = [
+          {
+            "store-links": {
+              image: appStoreIcon?.id,
+              link: copy.application.downloads[0].link,
+            },
+          },
+          {
+            "store-links": {
+              image: googlePlayIcon?.id,
+              link: copy.application.downloads[1].link,
+            },
+          },
+        ];
+        return { ...block, tagline: copy.application.tagline, downloads };
       }
       if (block.blockType === "testimonials") {
         return { ...block, ...copy.testimonials };
